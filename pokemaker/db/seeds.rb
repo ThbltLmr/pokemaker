@@ -36,7 +36,7 @@
 
 require "open-uri"
 
-response = URI.open('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0').read
+response = URI.open('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0').read
 data = JSON.parse(response)
 
 data["results"].each do |pokemon|
