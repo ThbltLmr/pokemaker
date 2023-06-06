@@ -1,5 +1,5 @@
 class Pokemon < ApplicationRecord
-  attr_accessor :prompt, :step
+  attr_accessor :step
 
   belongs_to :user
   has_many :pokemon_attacks, dependent: :destroy
