@@ -1,0 +1,5 @@
+  <%= f.input :step, input_html: { value: f.object.current_step } %>
+  <%= f.input :name, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "name"}" } %>
+
+  <%= f.input :type_one, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "types"}" } %>
+  <%= f.input :type_two, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "types"}" } %>

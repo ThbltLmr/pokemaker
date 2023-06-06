@@ -1,6 +1,6 @@
-<%= simple_form_for @pokemon, html: { data: { controller: "pokemon" } } do |f| %>
+<%= simple_form_for @pokemon, html: { data: { controller: "pokemon", action: "submit->pokemon#step" } } do |f| %>
   <div data-pokemon-target="step">
-    <%= render "pokemons/steps/name", f: f %>
+    <%= render "pokemons/form", f: f %>
   </div>
 
   <%= f.submit %>
