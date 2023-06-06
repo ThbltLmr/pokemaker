@@ -19,6 +19,6 @@ export default class extends Controller {
 
     const response = await fetch("/pokemons", options)
     const data = await response.json()
-    this.element.innerHTML = data.html
+    this.stepTarget.innerHTML = data.html
   }
 }
