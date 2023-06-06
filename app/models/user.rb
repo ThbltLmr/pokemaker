@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :pokemons
   has_many :votes
 
-  validates :nickname, presence: true, length: { minimum: 5, maximum: 20 }
+  # validates :nickname, presence: true, length: { minimum: 5, maximum: 20 }
 end
