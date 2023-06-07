@@ -7,6 +7,7 @@ class Pokemon < ApplicationRecord
   has_many :votes
   has_many :pokemon_types, dependent: :destroy
   has_many :types, through: :pokemon_types
+  has_one_attached :photo
 
   STEPS = [:name, :types, :prompt, :attacks, :bio]
 
@@ -23,6 +24,11 @@ class Pokemon < ApplicationRecord
   end
 
   def next_step!
+    if step == "prompt"
+      image_url = MidJourneyClient.new(self).call
+      image = URI.open(image_url)
+      self.photo.attach(io: image, filename: "pokemon.png", content_type: "image/png")
+    end
     self.step = STEPS[STEPS.index(step.to_sym) + 1]
   end
 

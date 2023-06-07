@@ -16,9 +16,11 @@ class PokemonsController < ApplicationController
     # debugger
     if @pokemon.valid?
       if @pokemon.last_step?
+        debugger
         @pokemon.save
         create_types(@pokemon, params.dig(:pokemon, :type_ids))
         create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
+        redirect_to root_path(format: :html)
       else
         @pokemon.next_step!
         render json: { html: partial }
