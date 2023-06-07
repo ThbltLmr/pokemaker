@@ -29,6 +29,9 @@ class MidJourneyClient
     }.to_json
 
     result_response = Faraday.post(result_url, result_body, headers)
-    return JSON.parse(result_response.body)["imageURL"]
+    image_url = JSON.parse(result_response.body)["imageURL"]
+    image = URI.open(image_url)
+    @pokemon.photo.attach(io: image, filename: "pokemon.png", content_type: "image/png")
+    debugger
   end
 end
