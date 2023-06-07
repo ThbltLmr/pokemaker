@@ -43,6 +43,8 @@ class PokemonsController < ApplicationController
   end
 
   def create_attacks(pokemon, attacks)
-    attacks[1..].each { |t| PokemonAttack.create(pokemon: pokemon, attack_id: t.to_i) }
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i)
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[3].to_i)
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[5].to_i)
   end
 end
