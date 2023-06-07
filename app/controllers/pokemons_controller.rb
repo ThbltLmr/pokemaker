@@ -5,6 +5,8 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.new
   end
 
+  def index
+    @pokemons = Pokemon.all
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user = current_user
