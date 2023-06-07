@@ -1,5 +1,6 @@
   <div class="form-container">
     <%= f.input :step, label: false, input_html: { value: f.object.current_step, class: "d-none" } %>
+    <%= f.input :task_id, label: false, input_html: { class: "d-none" } %>
     <%= f.input :name, label: false, placeholder: "Enter a name", input_html: { class: "#{'d-none' if f.object.current_step != "name"}" } %>
 
     <%= f.association :types, checked: params.dig(:pokemon, :type_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "types"}", "data-pokemon-target": "types" }, input_html: { data: {action: "change->pokemon#checkboxlimit"} }, as: :check_boxes %>

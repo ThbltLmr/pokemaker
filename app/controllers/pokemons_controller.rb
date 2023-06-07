@@ -16,7 +16,7 @@ class PokemonsController < ApplicationController
     # debugger
     if @pokemon.valid?
       if @pokemon.last_step?
-        debugger
+        MidJourneyResult.new(@pokemon, params.dig(:pokemon, :task_id)).call
         @pokemon.save
         create_types(@pokemon, params.dig(:pokemon, :type_ids))
         create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
@@ -41,7 +41,7 @@ class PokemonsController < ApplicationController
   end
 
   def pokemon_params
-    params.require(:pokemon).permit(:step, :prompt, :name, :bio)
+    params.require(:pokemon).permit(:step, :prompt, :name, :bio, :task_id)
   end
 
   def create_types(pokemon, types)
