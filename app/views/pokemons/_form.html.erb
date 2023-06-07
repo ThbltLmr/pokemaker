@@ -1,0 +1,10 @@
+  <%= f.input :step, input_html: { value: f.object.current_step } %>
+  <%= f.input :name, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "name"}" } %>
+
+  <%= f.association :types, label:false, selected: params.dig(:pokemon, :type_ids), input_html: { class: "#{'d-none' if f.object.current_step != "types"}" } %>
+
+  <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}" } %>
+
+  <%= f.association :attacks, label: false, selected: params.dig(:pokemon, :attack_ids), input_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
+
+  <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
