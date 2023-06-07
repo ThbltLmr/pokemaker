@@ -4,7 +4,21 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['step', 'types']
 
-  connect() {}
+  connect() {
+    this.element.querySelectorAll("select").forEach((dropdown) => {
+      console.log(dropdown);
+      dropdown.removeAttribute("multiple")
+      // dropdown.innerHTML = "class='form-select select optional' name='pokemon[attack_ids][] id='pokemon_attack-ids"
+    });
+  }
+
+  fuckMultiple() {
+    this.element.querySelectorAll("select").forEach((dropdown) => {
+      console.log(dropdown);
+      dropdown.removeAttribute("multiple")
+      // dropdown.innerHTML = "class='form-select select optional' name='pokemon[attack_ids][] id='pokemon_attack-ids"
+    });
+  }
 
   async step(event) {
     event.preventDefault()
@@ -17,6 +31,7 @@ export default class extends Controller {
     const response = await fetch("/pokemons", options)
     const data = await response.json()
     this.stepTarget.innerHTML = data.html
+    this.fuckMultiple()
   }
 
   checkboxlimit(event) {

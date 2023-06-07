@@ -7,9 +7,9 @@
 
     <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}" } %>
 
-    <%= f.association :attacks, label: "Test", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
-    <%= f.association :attacks, label: false, selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
-    <%= f.association :attacks, label: false, selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
+    <%= f.association :attacks, label: "Attack 1", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}", multiple: false } %>
+    <%= f.association :attacks, label: "Attack 2", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
+    <%= f.association :attacks, label: "Attack 3", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
 
