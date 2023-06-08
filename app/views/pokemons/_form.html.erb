@@ -15,7 +15,7 @@
 
     <%= f.submit "Next step", class: "btn btn-primary" %>
   </div>
-  <div class="dialog-container">
+  <div class="dialog-container" data-pokemon-target="chen">
     <div class=<%="#{'d-none' if f.object.current_step != "name"}"%>>
       <p>Hello and welcome to my lab!</p>
       <p>I hear you want to create a new Pokemon. What would you like to call it?</p>

@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
+import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form']
+  static targets = ['step', 'types', 'form', 'chen']
 
   connect() {
     this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -35,6 +36,9 @@ export default class extends Controller {
       this.stepTarget.innerHTML = data.html
       this.fuckMultiple()
     }
+
+    const current_chen = this.chenTarget.querySelector("div:not(.d-none)")
+    opti
   }
 
   checkboxlimit(event) {
