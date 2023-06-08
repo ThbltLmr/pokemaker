@@ -32,30 +32,43 @@
 }
 .card_pokemon {
   width: 380px;
-  height: 467px;
+  height: 527px;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
 }
+
+
+
+.card__back {
+  background-image: image-url("pokemon_card_back.png");
+  background-size: cover;
+  border-radius: 17px;
+  height: 100%;
+}
+
+
 .card__wrapper {
   perspective: 600px;
   position: absolute;
   inset: 0;
 }
+
 .card__3d {
   transform: rotateY(var(--r-x)) rotateX(var(--r-y));
   position: absolute;
   inset: 0;
   clip-path: inset(0 0 0 0 round 15px);
 }
-.card__image {
+
+.card__front {
   background-color: yellow;
   border: 1px solid black;
   border-radius: 17px;
   height: 100%;
   clip-path: inset(0 0 0 0 round 15px);
 }
-.card__image img {
+.card__front img {
   display: block;
   max-width: 100%;
   max-height: 100%;
@@ -98,4 +111,12 @@
   background-position: center, 0% var(--bg-y),
     calc(var(--bg-x) * -1) calc(var(--bg-y) * -1), var(--bg-x) var(--bg-y);
   background-blend-mode: soft-light, hue, hard-light;
+}
+
+.smooth {
+  transition: 1s transform;
+}
+
+#hello {
+  margin: 3rem;
 }

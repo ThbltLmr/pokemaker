@@ -1,17 +1,18 @@
-<div class="card_pokemon " data-controller="shiny">
+<div class="card_pokemon" data-controller="shiny" data-action="click->shiny#turn mousemove->shiny#shine">
   <div class="card__wrapper">
-    <div class="card__3d">
-      <div class="card__image p-2">
+    <div class="card__3d" data-shiny-target="movement">
+      <div class="card__back" data-shiny-target="back">
+      </div>
+      <div class="card__front d-none p-2" data-shiny-target="front">
         <div class="bg-secondary h-100">
-          <p>Chienrock</p>
-          <%= image_tag 'pokemon_dog.png' %>
-          <button>HELLO</button>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea non nobis aut. Ipsa, distinctio dolore quae doloremque saepe repellat nemo dolor laudantium, consectetur quod tenetur! Nisi obcaecati veniam vel minima.</p>
+          <p> <%= pokemon.name %> </p>
+          <%= cl_image_tag pokemon.photo.key, id: "hello" %>
+          <button>HP 120</button>
+          <p> <%= pokemon.bio %> </p>
         </div>
       </div>
-      <div class="card__layer1"></div>
-      <div class="card__layer2"></div>
+      <div class="card__layer1 d-none" data-shiny-target="layer1"></div>
+      <div class="card__layer2 d-none" data-shiny-target="layer2"></div>
     </div>
-
   </div>
 </div>
