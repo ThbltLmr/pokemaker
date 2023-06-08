@@ -1,5 +1,5 @@
 class Pokemon < ApplicationRecord
-  attr_accessor :step, :type_ids
+  attr_accessor :step, :type_ids, :attack_ids, :task_id
 
   belongs_to :user
   has_many :pokemon_attacks, dependent: :destroy
@@ -7,6 +7,7 @@ class Pokemon < ApplicationRecord
   has_many :votes
   has_many :pokemon_types, dependent: :destroy
   has_many :types, through: :pokemon_types
+  has_one_attached :photo
 
   STEPS = [:name, :types, :prompt, :attacks, :bio]
 
@@ -23,6 +24,7 @@ class Pokemon < ApplicationRecord
   end
 
   def next_step!
+    MidJourneyClient.new(self).call(false) if step == "prompt"
     self.step = STEPS[STEPS.index(step.to_sym) + 1]
   end
 
