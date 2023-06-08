@@ -20,7 +20,7 @@ class PokemonsController < ApplicationController
         @pokemon.save
         create_types(@pokemon, params.dig(:pokemon, :type_ids))
         create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
-        redirect_to root_path(format: :html)
+        render json: { html: reveal(@pokemon) }
       else
         @pokemon.next_step!
         render json: { html: partial }
@@ -34,6 +34,10 @@ class PokemonsController < ApplicationController
     render_to_string(partial: "pokemons/form", locals: { f: form_builder }, formats: [:html])
   end
 
+  def reveal(pokemon)
+    render_to_string(partial: "pokemons/reveal", locals: { pokemon: pokemon }, formats: [:html])
+  end
+
   def form_builder
     view_context.simple_form_for(
       @pokemon
@@ -41,7 +45,7 @@ class PokemonsController < ApplicationController
   end
 
   def pokemon_params
-    params.require(:pokemon).permit(:step, :prompt, :name, :bio, :task_id)
+    params.require(:pokemon).permit(:step, :prompt, :name, :bio, :task_id, :types_ids, :attacks_ids)
   end
 
   def create_types(pokemon, types)

@@ -24,7 +24,7 @@ class Pokemon < ApplicationRecord
   end
 
   def next_step!
-    # MidJourneyClient.new(self).call if step == "prompt"
+    MidJourneyClient.new(self).call(false) if step == "prompt"
     self.step = STEPS[STEPS.index(step.to_sym) + 1]
   end
 

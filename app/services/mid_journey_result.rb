@@ -17,7 +17,7 @@ class MidJourneyResult
     result_url = "https://api.midjourneyapi.io/v2/result"
 
     result_body = {
-      "taskId": "12826636998690399766219445354649"
+      "taskId": @task_id
     }.to_json
 
     result_response = Faraday.post(result_url, result_body, headers)
