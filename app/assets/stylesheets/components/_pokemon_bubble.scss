@@ -1,0 +1,53 @@
+.pokemon-bubble {
+  width: 250px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: rgba(184, 184, 184, 0.85);
+  box-shadow: 1px 2px 3px grey;
+  position: relative;
+  display: flex;
+}
+
+#name {
+  margin-left: 10px;
+}
+
+.photo {
+  width: 100px;
+  border-radius: 50px;
+}
+
+.bubble-info {
+  padding: 7px;
+}
+
+.photo-energy {
+  width: 30px;
+  border-radius: 15px;
+}
+
+.energy {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.like-bubble {
+  width: 55px;
+  height: 30px;
+  background-color: rgba(216, 128, 128, 0.9);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: -11px;
+  right: 16px;
+  gap: 3px;
+  padding: 8px;
+
+}
+
+.like-bubble, p {
+  margin-bottom: 0px !important;
+}

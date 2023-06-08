@@ -1,0 +1,31 @@
+<div class="screen">
+  <div class="profile">
+    <div class="trainer">
+      <%= image_tag 'vegeta.png', :class => "avatar-custom" %>
+      <h3>Vegeta</h3>
+    </div>
+    <div class="stats">
+      <h3>Pokemons created:</h3>
+      <h3>Total likes:</h3>
+      <h3>Average likes/Pokemon:</h3>
+    </div>
+    <div class="main_pokemon">
+      <h3>Most liked Pokemon:</h3>
+      <%= render "shared/pokemon_bubble" %>
+      <%# badge with likes (in abs) %>
+    </div>
+  </div>
+  <div class="pokemon_cards">
+    <% current_user.pokemons.each do |pokemon| %>
+      <%= render "shared/pokemon_bubble" %>
+    <% end %>
+  </div>
+</div>
+
+    <%# i = 0 %>
+    <%# blabla.each  %>
+    <%# if i % 12 %>
+    <%# <div></div> %>
+    <%# end %>
+    <%# i += 1 %>
+    <%# end %>

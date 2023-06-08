@@ -1,46 +1,56 @@
-# pokemon = Pokemon.new(name: 'Pikachu', health_points: 100, attack: 'Thunder Shock', poke_type: 'Electric')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Charizard', health_points: 120, attack: 'Flame Burst', poke_type: 'Fire')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Bulbasaur', health_points: 90, attack: 'Vine Whip', poke_type: 'Grass')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Squirtle', health_points: 85, attack: 'Water Gun', poke_type: 'Water')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Jigglypuff', health_points: 95, attack: 'Pound', poke_type: 'Fairy')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Mewtwo', health_points: 150, attack: 'Psychic', poke_type: 'Psychic')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Mew', health_points: 150, attack: 'Psychic', poke_type: 'Psychic')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Gengar', health_points: 120, attack: 'Shadow Ball', poke_type: 'Ghost')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Gyarados', health_points: 130, attack: 'Hydro Pump', poke_type: 'Water')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Dragonite', health_points: 140, attack: 'Dragon Breath', poke_type: 'Dragon')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Snorlax', health_points: 150, attack: 'Body Slam', poke_type: 'Normal')
-# pokemon.save!
-
-# pokemon = Pokemon.new(name: 'Machamp', health_points: 130, attack: 'Cross Chop', poke_type: 'Fighting')
-# pokemon.save!
-
 require "open-uri"
 
-response = URI.open('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0').read
+User.destroy_all
+PokemonType.destroy_all
+PokemonAttack.destroy_all
+Pokemon.destroy_all
+Type.destroy_all
+Attack.destroy_all
+
+types = %w(grass fire water lightning pyschic fighting darkness metal fairy)
+
+pokedex = User.new(
+  nickname: "Pokedex",
+  email: "pokedex@gmail.com",
+  password: "pokedex"
+)
+
+pokedex.save!
+
+User.create(
+  nickname: "Ash Ketchum",
+  email: "ash.ketchum@mail.com",
+  password: "pokemon"
+)
+
+types.each do |type|
+  Type.create(
+    name: type
+  )
+end
+
+response = URI.open('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0').read
 data = JSON.parse(response)
 
-data["results"].each do |pokemon|
-  pokemon = Pokemon.new(name: pokemon["name"])
-  pokement.image.attach(io: pokemon["url"], filename: pokemon["name"])
-  pokmon.save!
+data["results"].each do |result|
+  pokemon = Pokemon.new(name: result["name"])
+  pokemon.user = pokedex
+  puts result["name"]
+  puts result["url"]
+  indiv_response = URI.open(result["url"]).read
+  indiv_data = JSON.parse(indiv_response)
+  image = URI.open(indiv_data["sprites"]["front_default"])
+  pokemon.photo.attach(io: image, filename: "#{result["name"]}.png", content_type: "image/png")
+  pokemon.save!
+  PokemonType.create(
+    pokemon: pokemon,
+    type: Type.all.sample
+  )
+end
+
+attacks_response = URI.open('https://pokeapi.co/api/v2/move?limit=1000&offset=0').read
+attacks_data = JSON.parse(attacks_response)
+
+attacks_data["results"].each do |attack|
+  Attack.create(name: attack["name"])
 end
