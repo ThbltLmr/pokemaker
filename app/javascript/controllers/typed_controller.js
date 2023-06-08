@@ -10,7 +10,7 @@ export default class extends Controller {
   connect() {
     console.log("hey")
     console.log(this.dialogValue)
-    const options = {strings: this.dialogValue, typeSpeed: 40, fadeOut: false, showCursor: false};
+    const options = {strings: this.dialogValue, typeSpeed: 25, fadeOut: false, showCursor: false};
     new Typed(this.element, options);
   }
 }

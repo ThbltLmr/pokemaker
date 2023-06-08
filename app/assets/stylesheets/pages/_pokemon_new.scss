@@ -1,5 +1,11 @@
-.container-lab {
-  background-image: url('chen.png');
+.lab-container {
+  margin: 0;
+  top: 0;
+  position: absolute;
+  background-image: url('pokemaker_waiting.png');
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
 }
 
 .container-shen {
@@ -7,7 +13,8 @@
   height: 90vh;
   width: 90wh;
   background-size: 100% 100%;
-  margin: 5vh auto;
+  margin: 7vh auto 3vh auto;
+  margin-inline: 5rem !important;
 }
 
 .step-form-container {
@@ -24,6 +31,7 @@
   width: 60%;
   // height: 50% !important;
   padding: 5% 0 0 0;
+  background-color: white;
   display: flex;
   flex-direction: column;
   border: 3px solid black;
