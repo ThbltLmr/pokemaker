@@ -24,27 +24,28 @@ class PokemonsController < ApplicationController
     end
   end
 
-  private
+  # private
 
   def partial
-    render_to_string(partial: "pokemons/form", locals: { f: form_builder }, formats: [:html])
-  end
+      render_to_string(partial: "pokemons/form", locals: { f: form_builder }, formats: [:html])
+    end
 
-  def form_builder
-    view_context.simple_form_for(
-      @pokemon
-    ) { |builder| break builder }
-  end
+    def form_builder
+      view_context.simple_form_for(
+        @pokemon
+      ) { |builder| break builder }
+    end
 
-  def pokemon_params
-    params.require(:pokemon).permit(:step, :prompt, :name, :bio)
-  end
+    def pokemon_params
+      params.require(:pokemon).permit(:step, :prompt, :name, :bio)
+    end
 
-  def create_types(pokemon, types)
-    types[1..].each { |t| PokemonType.create(pokemon: pokemon, type_id: t.to_i) }
-  end
+    def create_types(pokemon, types)
+      types[1..].each { |t| PokemonType.create(pokemon: pokemon, type_id: t.to_i) }
+    end
 
-  def create_attacks(pokemon, attacks)
-    attacks[1..].each { |t| PokemonAttack.create(pokemon: pokemon, attack_id: t.to_i) }
+    def create_attacks(pokemon, attacks)
+      attacks[1..].each { |t| PokemonAttack.create(pokemon: pokemon, attack_id: t.to_i) }
+    end
   end
 end

@@ -1,71 +1,172 @@
-.card {
-  width: 500px; /* Augmentez la largeur selon vos besoins */
-  height: 180px; /* Augmentez la hauteur selon vos besoins */
-  background: #262626;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px; /* Espace entre les cartes */
-  justify-content: start; /* Centrer les cartes sur la gauche */
-  margin-left: 20px; /* Espace à gauche pour la prochaine fonctionnalité */
-}
-
-
-.smallIcon {
+.navbar {
   width: 100%;
-  height: 100%;
-  background-color: #ff5858;
+  background-color: #941b0c;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: 92px;
+  display: flex;
 }
 
-.smallIcon div {
-  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0
-  40%, #e5e5e5 48%);
-  margin-top: 10px;
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  animation: load89234 2s infinite;
-  color: #262626;
-  font-weight: bold;
-  font-size: 15px;
+.grey-content {
+  width: 870px;
+  background-color: #C8C1C1;
+  position: fixed;
+  height: 52px;
+  z-index: 100;
+  left: 590px;
+  top: 6%;
 }
 
-.Icon {
-  margin: 10px;
-  width: 70px;
-  height: 70px;
-  float: left;
-  border-radius: 5px;
+.title-pokedex {
+  position: absolute;
+  left: 10%;
+  font-family: 'Pokemon Classic', sans-serif;
 }
 
-.Name {
+.filtre {
+  position: absolute;
+  left: 59%;
+  top: 8%;
+}
+
+#fil {
+  margin: 0 10px;
+  border-radius: 10px;
+  background: #D9D9D9;
+  font-style: bold;
+  color: black;
+}
+
+#back {
+  position: absolute;
+  background: #D9D9D9;
+  font-style: bold;
+  color: black;
+  border-radius: 10px;
+  left: 95%;
+  top: 8%;
+}
+
+.home {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #C8C1C1;
+}
+
+.container {
+  width: 93%;
+  height: 81%;
+  position: relative;
+  background-image: url(coverpokemon.jpg);
+  background-color: #f41010;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+  transform: translateY(6%);
+  display: flex;
+}
+
+.list {
+  width: 600px;
+  height: 91%;
+  position: relative;
+  background: rgba(217, 217, 217, 0.6);
+  box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 27px;
+  transform: translateY(5%);
+  left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.pokemon-card {
+  width: 30%;
+  height: 70%;
+  position: absolute;
+  background-color: aquamarine;
+  right: 10%;
+  top: 20%;
+}
+
+.avatar {
   width: 90px;
-  height: 20px;
-  float: left;
-  transform: translate(10px ,0px);
-  border-radius: 5px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-image: url(pokemon_dog.png);
+  right: 5%;
+  top: 5%;
+  position: absolute;
 }
 
-.Roles {
-  width: 40px;
-  height: 20px;
-  float: left;
-  transform: translate(20px ,0px);
-  border-radius: 5px;
+.like-count {
+  position: absolute;
+  border-radius: 20px;
+  background: rgba(215, 111, 111, 0.63);
+  width: 91px;
+  height: 39px;
+  right: 31%;
+  top: 12%;
+}
+.heart-icon {
+  position: absolute;
+  width: 54px;
+  height: 96px;
+  right: 14%;
+  top: 17%;
 }
 
-.Descripion {
-  margin: 10px;
-  width: 140px;
-  height: 45px;
-  float: left;
-  transform: translate(0px ,-5px);
-  border-radius: 5px;
+#carre {
+  height: 62px;
+  width: 36px;
+  background: #941b0c;
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: absolute;
+  left: -10px;
+  top: -23px;
 }
 
-@keyframes load89234 {
-  100% {
-    background-position: -100% 0;
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .pokemon-card {
+    width: 280px;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .pokemon-card {
+    width: 200px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
   }
 }
