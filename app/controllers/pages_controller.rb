@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  def map
+  end
 end
