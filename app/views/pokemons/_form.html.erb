@@ -15,25 +15,6 @@
 
     <%= f.submit "Next step", class: "btn btn-primary" %>
   </div>
-  <div class="dialog-container" data-pokemon-target="chen">
-    <div class=<%="#{'d-none' if f.object.current_step != "name"}"%>>
-      <p>Hello and welcome to my lab!</p>
-      <p>I hear you want to create a new Pokemon. What would you like to call it?</p>
-    </div>
-    <div class=<%="#{'d-none' if f.object.current_step != "types"}"%>>
-      <p>Very well! Your Pokemon will be called <%= f.object.name %></p>
-      <p>Pick up to two types for your Pokemon</p>
-    </div>
-    <div class=<%="#{'d-none' if f.object.current_step != "prompt"}"%>>
-      <p>Understood</p>
-      <p>Can you tell me what your Pokemon looks like?</p>
-    </div>
-    <div class=<%="#{'d-none' if f.object.current_step != "attacks"}"%>>
-      <p>Time to choose some attacks for your Pokemon!</p>
-      <p>Pick three attacks for <%= f.object.name %></p>
-    </div>
-    <div class=<%="#{'d-none' if f.object.current_step != "bio"}"%>>
-      <p>One last thing!</p>
-      <p>write a short bio for <%= f.object.name %>: where do they live, what is their personality like...</p>
-    </div>
+  <div class="dialog-container" data-controller="typed" data-typed-dialog-value="<%= @pokemon.instructions_for(@pokemon.current_step).to_json %>">
+
   </div>
