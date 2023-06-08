@@ -1,1 +1,24 @@
-// Specific CSS for your home-page
+// // Specific CSS for your home-page
+
+.img-bot{
+  transform: translatex(-500px);
+  animation: 0.9s titleAnimation linear forwards;
+}
+
+.title-bot {
+  transform: translateY(300px);
+  animation: .9s titleAnimation linear forwards;
+  overflow: hidden;
+}
+
+.title-top{
+  transform: translateY(-250px);
+  animation: .9s titleAnimation linear forwards;
+  overflow: hidden;
+}
+
+@keyframes titleAnimation {
+  to {
+    transform: initial;
+  }
+}
