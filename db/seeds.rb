@@ -2,7 +2,7 @@ require "open-uri"
 
 PokemonType.destroy_all
 PokemonAttack.destroy_all
-Pokemon.destroy
+Pokemon.destroy_all
 Type.destroy_all
 Attack.destroy_all
 
@@ -13,6 +13,8 @@ pokedex = User.create(
   email: "pokedex@gmail.com",
   password: "pokedex"
 )
+
+puts pokedex
 
 User.create(
   nickname: "Ash Ketchum",
@@ -29,9 +31,14 @@ end
 response = URI.open('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0').read
 data = JSON.parse(response)
 
-data["results"].each do |pokemon|
-  pokemon = Pokemon.new(name: pokemon["name"])
-  pokemon.photo.attach(io: pokemon["url"], filename: pokemon["name"])
+data["results"].each do |result|
+  pokemon = Pokemon.new(name: result["name"])
+  puts result["name"]
+  puts result["url"]
+  indiv_response = URI.open(result["url"]).read
+  indiv_data = JSON.parse(indiv_response)
+  image = URI.open(indiv_data["sprites"]["front_default"])
+  pokemon.photo.attach(io: image, filename: "#{result["name"]}.png", content_type: "image/png")
   pokemon.user = pokedex
   pokemon.save!
   PokemonType.create(
@@ -40,9 +47,9 @@ data["results"].each do |pokemon|
   )
 end
 
-response = URI.open('https://pokeapi.co/api/v2/move?limit=1000&offset=0').read
-data = JSON.parse(response)
+attacks_response = URI.open('https://pokeapi.co/api/v2/move?limit=1000&offset=0').read
+attacks_data = JSON.parse(attacks_response)
 
-data["results"].each do |attack|
+attacks_data["results"].each do |attack|
   Attack.create(name: attack["name"])
 end
