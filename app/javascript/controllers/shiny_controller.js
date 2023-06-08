@@ -4,6 +4,16 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     console.log("check")
+
+    let intensity_x = document.documentElement.style.setProperty("--x", 100 * X + "%");
+    let intensity_y = document.documentElement.style.setProperty("--y", 100 * Y + "%");
+
+    let diagonal_x = document.documentElement.style.setProperty("--bg-x", bgX + "%");
+    let diagonal_y = document.documentElement.style.setProperty("--bg-y", bgY + "%");
+
+    let rotation_x = document.documentElement.style.setProperty("--r-x", -1.364208 + "deg");
+    let rotation_y = document.documentElement.style.setProperty("--r-y", -0.41755888650963624 + "deg");
+
     const el = this.element;
 // const wrap = document.querySelector(".card__wrapper");
     let w = el.clientWidth;
@@ -20,14 +30,14 @@ export default class extends Controller {
       let bgY = 40 + 20 * Y;
 
       console.log(X, Y);
-      document.documentElement.style.setProperty("--x", 100 * X + "%");
-      document.documentElement.style.setProperty("--y", 100 * Y + "%");
+      intensity_x = document.documentElement.style.setProperty("--x", 100 * X + "%");
+      intensity_y = document.documentElement.style.setProperty("--y", 100 * Y + "%");
 
-      document.documentElement.style.setProperty("--bg-x", bgX + "%");
-      document.documentElement.style.setProperty("--bg-y", bgY + "%");
+      diagonal_x = document.documentElement.style.setProperty("--bg-x", bgX + "%");
+      diagonal_y = document.documentElement.style.setProperty("--bg-y", bgY + "%");
 
-      document.documentElement.style.setProperty("--r-x", rX + "deg");
-      document.documentElement.style.setProperty("--r-y", rY + "deg");
+      rotation_x = document.documentElement.style.setProperty("--r-x", rX + "deg");
+      rotation_y = document.documentElement.style.setProperty("--r-y", rY + "deg");
     });
   }
 }
