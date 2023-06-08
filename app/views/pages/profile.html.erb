@@ -16,7 +16,9 @@
     </div>
   </div>
   <div class="pokemon_cards">
-
+    <% current_user.pokemons.each do |pokemon| %>
+      <%= render "shared/pokemon_bubble" %>
+    <% end %>
   </div>
 </div>
 

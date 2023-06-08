@@ -86,6 +86,7 @@
   background-blend-mode: hue, hue, hard-light, overlay;
   background: var(--pattern), var(--rainbow), var(--diagonal);
 }
+
 /* second crazy blend  */
 .card__layer2:after {
   content: "";
