@@ -6,11 +6,11 @@
           <p><%= pokemon.name %></p>
           <%= cl_image_tag pokemon.photo.key, transformation: [
             {height: 1024, width: 1024, crop: :crop, x: 0, y:0},
-            {height: 300, width: 400, crop: :fill}] %>
+            {height: 200, width: 300, crop: :fill}] %>
           <p><%= pokemon.bio %></p>
-          <p><%= pokemon.attacks.first %></p>
-          <p><%= pokemon.attacks.second %></p>
-          <p><%= pokemon.attacks.last %></p>
+          <p><%= pokemon.attacks.first.name %></p>
+          <p><%= pokemon.attacks.second.name %></p>
+          <p><%= pokemon.attacks.last.name %></p>
         </div>
       </div>
       <div class="card__layer1"></div>
