@@ -1,5 +1,8 @@
+<div class="">
+  <%= image_tag 'pokemaker_logo.gif' %>
+</div>
 
- <%= image_tag('argenta-ville.png', class: "home-map") %>
- <%= image_tag('player_front.png', class: "player") %>
+<%= render 'shared/pokemon_card' %>
 
- <%# <%= render 'devise/sessions/new' %>
+<%= link_to "Pokemaker", pokemons_new_path %>
+<%= link_to "Pokedex", pokemons_index_path %>
