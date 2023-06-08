@@ -18,38 +18,9 @@
     </div>
  </div>
   <div class="list">
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
-    <div class="pokemon-cell">
-      <p>Pikachu</p>
-      <img src="#">
-    </div>
+    <% @pokemons.each do |pokemon| %>
+      <%= render 'shared/pokemon_bubble' %>
+    <% end %>
   </div>
   <div class="pokemon-card">
   </div>
