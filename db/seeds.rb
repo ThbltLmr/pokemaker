@@ -1,5 +1,6 @@
 require "open-uri"
 
+User.destroy_all
 PokemonType.destroy_all
 PokemonAttack.destroy_all
 Pokemon.destroy_all
@@ -8,13 +9,13 @@ Attack.destroy_all
 
 types = %w(grass fire water lightning pyschic fighting darkness metal fairy)
 
-pokedex = User.create(
+pokedex = User.new(
   nickname: "Pokedex",
   email: "pokedex@gmail.com",
   password: "pokedex"
 )
 
-puts pokedex
+pokedex.save!
 
 User.create(
   nickname: "Ash Ketchum",
@@ -33,13 +34,13 @@ data = JSON.parse(response)
 
 data["results"].each do |result|
   pokemon = Pokemon.new(name: result["name"])
+  pokemon.user = pokedex
   puts result["name"]
   puts result["url"]
   indiv_response = URI.open(result["url"]).read
   indiv_data = JSON.parse(indiv_response)
   image = URI.open(indiv_data["sprites"]["front_default"])
   pokemon.photo.attach(io: image, filename: "#{result["name"]}.png", content_type: "image/png")
-  pokemon.user = pokedex
   pokemon.save!
   PokemonType.create(
     pokemon: pokemon,
