@@ -36,6 +36,14 @@
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
+
+  h3 {
+    margin: 0px;
+  }
+
+  p {
+    font-size: small;
+  }
 }
 
 
@@ -117,6 +125,7 @@
   transition: 1s transform;
 }
 
-#hello {
-  margin: 3rem;
+.main-img {
+  margin-left: 1rem;
+  border: solid yellow;
 }
