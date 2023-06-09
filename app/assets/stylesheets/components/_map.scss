@@ -6,21 +6,34 @@
   background-image: asset-url("argenta-ville");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 900px;
-  width: 2000px;
   z-index: -999;
 }
 
 .player {
   width: 80px;
   height: 100px;
-  // top: 0;
-  // left: 0;
-  background-image: asset-url("player_front");
+  bottom: 250px;
+  left: 300px;
   background-size: 240px 100px;
   background-position: -80px 0;
   position: fixed;
   z-index: 999;
+}
+
+.player-left {
+  background-image: image-url("player_left.png");
+}
+
+.player-right {
+  background-image: image-url("player_right.png");
+}
+
+.player-back {
+  background-image: image-url("player_back.png");
+}
+
+.player-front {
+  background-image: image-url("player_front.png");
 }
 
 .player.active{
@@ -39,13 +52,13 @@
   }
 }
 
-#maison {
-  z-index: 1000;
-  border: 1px solid red;
-  height: 15%;
-  width: 15%;
-  position: absolute;
-  bottom: 27%;
-  left: 33%;
-  transform: translate(-50%, -50%)
-}
+// #maison {
+//   z-index: 1000;
+//   border: 1px solid red;
+//   height: 15%;
+//   width: 15%;
+//   position: absolute;
+//   bottom: 27%;
+//   left: 33%;
+//   transform: translate(-50%, -50%)
+// }
