@@ -54,8 +54,13 @@ sorted_attacks.each do |attack|
   attack_response = URI.open(attack["url"]).read
   attack_data = JSON.parse(attack_response)
   puts attack["url"]
-  unless attack["name"].include?("--") || attack["name"].include?("10") || attack_data["effect_entries"] == []
-  attack_data["effect_entries"].kind_of?(Array) ? description = attack_data["effect_entries"][0]["short_effect"] : description = attack_data["effect_entries"]["short_effect"]
+  unless attack["name"].include?("--") || attack["name"].include?("10") || attack_data["flavor_text_entries"] == []
+  if attack_data["flavor_text_entries"].kind_of?(Array)
+    index = attack_data["flavor_text_entries"].find_index{ |hash| hash["language"]["name"] == "en" }
+    description = attack_data["flavor_text_entries"][index]["flavor_text"]
+  else
+    description = attack_data["effect_entries"]["short_effect"]
+  end
     Attack.create(name: attack["name"], description: description)
   end
 end
