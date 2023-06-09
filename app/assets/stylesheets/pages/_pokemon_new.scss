@@ -1,9 +1,20 @@
+.lab-container {
+  margin: 0;
+  top: 0;
+  position: absolute;
+  background-image: url('pokemaker_waiting.png');
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
 .container-shen {
   background-image: url('chen.png');
   height: 90vh;
-  width: 90vw;
+  width: 90wh;
   background-size: 100% 100%;
-  margin: 5vh auto;
+  margin: 7vh auto 3vh auto;
+  margin-inline: 5rem !important;
 }
 
 .step-form-container {
@@ -11,18 +22,69 @@
   height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-container {
-  width: 70%;
-  height: 50% !important;
-  padding: 5% 0 0 9%;
+  width: 60%;
+  // height: 50% !important;
+  padding: 5% 0 0 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 30px;
+  padding: 0 3%;
+  margin: 0 0 0 9%;
+  // justify-content: space-between;
 }
 
 .dialog-container {
   width: 90%;
   height: 50% !important;
-  padding: 5% 0 0 12%;
+  padding: 5% 0 0 0;
   font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 0 12%;
+}
+
+.types-inline {
+  display: inline-block;
+}
+
+.hidden-input {
+  position: absolute;
+  transform: scale(0)
+}
+
+.hidden-input + label {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.hidden-input:checked + label {
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.types-fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.submit-button {
+  padding: 5px;
+  background: none;
+  border: none;
+  font-size: 24px;
+}
+
+.attacks-label {
+  width: 15%;
+  margin: auto;
+  font-size: 20px;
   font-weight: 500;
 }
