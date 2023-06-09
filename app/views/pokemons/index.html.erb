@@ -26,10 +26,10 @@
     </div>
  </div>
   <div class="list">
-    <% @pokemons.each_with_index do |pokemon, index| %>
-     <% break if index >= 10 %>
-     <%= render 'shared/pokemon_bubble' %>
-   <% end %>
+      <% @pokemons.each_with_index do |pokemon, index| %>
+        <% break if index >= 10 %>
+        <%= render 'shared/pokemon_bubble' %>
+      <% end %>
   </div>
   <div class="pokemon-card">
     <%= render 'shared/pokemon_card' %>
