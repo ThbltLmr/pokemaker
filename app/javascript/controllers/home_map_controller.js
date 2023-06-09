@@ -65,7 +65,7 @@ export default class extends Controller {
         }
         player.classList.add('active')
         if(e.key == "a") {
-          window.location = 'http://www.google.com'
+          window.location = 'http://www.pokemaker.xyz/pokemons/new'
         }
 
     })
