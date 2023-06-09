@@ -1,8 +1,24 @@
-<div class="">
+<%# <div class="">
   <%= image_tag 'pokemaker_logo.gif' %>
+<%# </div> %>
+
+<%# <%= render 'shared/pokemon_card' %>
+
+<%# <%= link_to "Pokemaker", pokemons_new_path %>
+<%# <%= link_to "Pokedex", pokemons_index_path %>
+
+
+<div class="d-flex flex row w-100 h-100 bg-black">
+  <div class="w-30 bg-success sizing-img">  <%= image_tag'red-dresseur' %>
 </div>
-
-<%= render 'shared/pokemon_card' %>
-
-<%= link_to "Pokemaker", pokemons_new_path %>
-<%= link_to "Pokedex", pokemons_index_path %>
+  <div class="w-40 d-flex flex column h-100 bg-primary">
+    <div class="d-flex flex column h-75">
+      <div><%= image_tag'title-top' %></div>
+      <div class="rounded circle"><%= image_tag'home-center-pokeball' %></div>
+      <div><%= image_tag'title-bot' %></div>
+    </div>
+    <div class="h-25 sizing-img"><%= image_tag'home-pokemon-bot'%>
+    </div>
+  </div>
+  <div class="w-30 bg-danger sizing-img"><%= image_tag'dresseuse-pokemon3' %></div>
+</div>
