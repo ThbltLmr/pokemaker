@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def map
+  end
+  
   def profile
   end
 
