@@ -3,7 +3,7 @@
 }
 
 .map-background {
-  background-image: asset-url("argenta-ville");
+  background-image: url('argenta-ville.png');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -999;
@@ -21,19 +21,19 @@
 }
 
 .player-left {
-  background-image: image-url("player_left.png");
+  background-image: url('player_left.png');
 }
 
 .player-right {
-  background-image: image-url("player_right.png");
+  background-image: url('player_right.png');
 }
 
 .player-back {
-  background-image: image-url("player_back.png");
+  background-image: url('player_back.png');
 }
 
 .player-front {
-  background-image: image-url("player_front.png");
+  background-image: url('player_front.png');
 }
 
 .player.active{
