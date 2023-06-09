@@ -4,12 +4,14 @@
   transform: translateY(300px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .title-top {
   transform: translateY(-250px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .curtain-right {
