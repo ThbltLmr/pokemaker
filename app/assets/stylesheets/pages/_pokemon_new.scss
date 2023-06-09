@@ -4,6 +4,7 @@
   position: absolute;
   background-image: url('pokemaker_waiting.png');
   background-size: cover;
+  background-position: center;
   width: 100%;
   background-repeat: no-repeat;
 }
@@ -11,7 +12,7 @@
 .container-shen {
   background-image: url('chen.png');
   height: 90vh;
-  width: 90wh;
+  width: 90vw;
   background-size: 100% 100%;
   margin: 7vh auto 3vh auto;
   margin-inline: 5rem !important;
