@@ -9,7 +9,9 @@
     <button type="button" class="btn btn-secondary" id="fil">Filtre</button>
     <button type="button" class="btn btn-secondary" id="fil">Filtre</button>
    </div>
-   <button type="button" class="btn btn-secondary" id="back">Back</button>
+   <%= link_to root_path do %>
+     <button type="button" class="btn btn-secondary" id="back">Back</button>
+    <% end %>
  </nav>
  <div class="container">
  <div class="like-count">
@@ -18,11 +20,13 @@
     </div>
  </div>
   <div class="list">
-    <% @pokemons.each do |pokemon| %>
-      <%= render 'shared/pokemon_bubble' %>
-    <% end %>
+    <% @pokemons.each_with_index do |pokemon, index| %>
+     <% break if index >= 10 %>
+     <%= render 'shared/pokemon_bubble' %>
+   <% end %>
   </div>
   <div class="pokemon-card">
+    <%= render 'shared/pokemon_card' %>
   </div>
   <div class="avatar">
   </div>

@@ -27,7 +27,7 @@
 .filtre {
   position: absolute;
   left: 59%;
-  top: 8%;
+  top: 5%;
 }
 
 #fil {
@@ -45,7 +45,7 @@
   color: black;
   border-radius: 10px;
   left: 95%;
-  top: 8%;
+  top: 5%;
 }
 
 .home {
@@ -95,19 +95,19 @@
   position: absolute;
   background-color: aquamarine;
   right: 10%;
-  top: 20%;
+  top: 17%;
 }
 
 .avatar {
-  width: 90px;
-  height: 80px;
+  width: 70px;
+  height: 75px;
   border-radius: 50%;
   overflow: hidden;
   background-position: center;
   background-size: cover;
-  background-image: url(pokemon_dog.png);
-  right: 5%;
-  top: 5%;
+  background-image: url(vegeta.png);
+  right: 2%;
+  top: 3%;
   position: absolute;
 }
 
@@ -118,7 +118,7 @@
   width: 91px;
   height: 39px;
   right: 31%;
-  top: 12%;
+  top: 9%;
 }
 .heart-icon {
   position: absolute;
@@ -129,16 +129,16 @@
 }
 
 #carre {
-  height: 62px;
-  width: 36px;
+  height: 75px;
+  width: 33px;
   background: #941b0c;
   -ms-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   position: absolute;
-  left: -10px;
-  top: -23px;
+  left: -2px;
+  top: -28px;
 }
 
 @media (max-width: 768px) {

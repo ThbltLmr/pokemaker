@@ -28,7 +28,7 @@ class PokemonsController < ApplicationController
     end
   end
 
-  # private
+  private
 
   def partial
     render_to_string(partial: "pokemons/form", locals: { f: form_builder }, formats: [:html])
