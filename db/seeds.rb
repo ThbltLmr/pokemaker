@@ -36,7 +36,6 @@ data["results"].each do |result|
   pokemon = Pokemon.new(name: result["name"])
   pokemon.user = pokedex
   puts result["name"]
-  puts result["url"]
   indiv_response = URI.open(result["url"]).read
   indiv_data = JSON.parse(indiv_response)
   image = URI.open(indiv_data["sprites"]["front_default"])
@@ -52,7 +51,11 @@ attacks_response = URI.open('https://pokeapi.co/api/v2/move?limit=1000&offset=0'
 attacks_data = JSON.parse(attacks_response)
 sorted_attacks = attacks_data["results"].sort_by {|a| a["name"]}
 sorted_attacks.each do |attack|
-  unless attack["name"].include?("--") || attack["name"].include?("10")
-    Attack.create(name: attack["name"])
+  attack_response = URI.open(attack["url"]).read
+  attack_data = JSON.parse(attack_response)
+  puts attack["url"]
+  unless attack["name"].include?("--") || attack["name"].include?("10") || attack_data["effect_entries"] == []
+  attack_data["effect_entries"].kind_of?(Array) ? description = attack_data["effect_entries"][0]["short_effect"] : description = attack_data["effect_entries"]["short_effect"]
+    Attack.create(name: attack["name"], description: description)
   end
 end
