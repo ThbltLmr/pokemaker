@@ -1,0 +1,17 @@
+.sign-up {
+ border : solid 5px black;
+ height: fit-content ;
+ width: 20rem;
+ background-color: rgba(114, 110, 225, 0.13);
+ position: absolute;
+ transform: translate(-50%,-50%);
+ top: 40%;
+ left: 90%;
+ border-radius: 10px;
+ backdrop-filter: blur(10px);
+ border: 2px solid rgba(255,255,255,0.1);
+ box-shadow: 0 0 40px rgba(8,7,16,0.6);
+ padding: 5px;
+ margin-top: 1rem;
+ z-index: 100;
+}
