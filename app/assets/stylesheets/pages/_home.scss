@@ -1,43 +1,90 @@
-// Specific CSS for your home-page
-// .home-page {
-//   background-size: 100%;
-//   height: 100%;
-//   width: 100%;
-//   box-sizing: border-box;
-//   margin: 0;
-//   position: relative;
-// }
 
-.home-map {
-  background-size: 100%;
-  height: 100%;
+// // Specific CSS for your home-page
+.title-bot {
+  transform: translateY(300px);
+  animation: .9s titleAnimation linear forwards;
+  overflow: hidden;
+}
+
+.title-top {
+  transform: translateY(-250px);
+  animation: .9s titleAnimation linear forwards;
+  overflow: hidden;
+}
+
+.curtain-right {
+  position: relative;
+}
+
+.curtain-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
-  margin: 0;
-  // position: relative;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationRight 2s forwards;
+  z-index: 500;
 }
 
-.player{
-  width: 80px;
-  height: 100px;
-  background-image: url("player_front.png");
-  background-size: 240px 100px;
-  background-position: -80px 0;
-  position: fixed;
-  border: solid 2px red;
-  z-index: 999;
-}
-.player.active{
-  animation: .3s walk linear infinite;
+@keyframes imageAnimationRight {
+  to {
+    transform: translateX(-500px);
+  }
 }
 
-@keyframes walk{
-  0%, 32%{
-      background-position: 0 0;
+.curtain-left {
+  position: relative;
+}
+
+.curtain-left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationLeft 2s forwards;
+  z-index: 500;
+}
+@keyframes imageAnimationLeft {
+  to {
+    transform: translateX(500px);
   }
-  33%, 65%{
-      background-position: -80px 0;
+}
+
+.curtain-bot {
+  position: relative;
+}
+
+.curtain-bot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationBot 2s forwards;
+  z-index: 500;
+}
+
+@keyframes imageAnimationBot {
+  to {
+    transform: translateY(500px);
   }
-  66%, 100%{
-      background-position: -160px 0;
+}
+
+@keyframes titleAnimation {
+  to {
+    transform: initial;
   }
 }

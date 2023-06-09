@@ -11,7 +11,7 @@ class MidJourneyResult
   def call
     headers = {
       "Content-Type": "application/json",
-      "Authorization": "f86a2a3d-dd4e-43aa-81d9-3d408eedbf1b"
+      "Authorization": ENV["MIDJOURNEY_KEY"]
     }
 
     result_url = "https://api.midjourneyapi.io/v2/result"

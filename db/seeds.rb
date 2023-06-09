@@ -1,13 +1,13 @@
 require "open-uri"
 
-User.destroy_all
-PokemonType.destroy_all
-PokemonAttack.destroy_all
 Pokemon.destroy_all
 Type.destroy_all
 Attack.destroy_all
+PokemonType.destroy_all
+PokemonAttack.destroy_all
+User.destroy_all
 
-types = %w(grass fire water lightning pyschic fighting darkness metal fairy)
+types = %w(grass fire water lightning psychic fighting darkness metal fairy)
 
 pokedex = User.new(
   nickname: "Pokedex",
@@ -50,7 +50,9 @@ end
 
 attacks_response = URI.open('https://pokeapi.co/api/v2/move?limit=1000&offset=0').read
 attacks_data = JSON.parse(attacks_response)
-
-attacks_data["results"].each do |attack|
-  Attack.create(name: attack["name"])
+sorted_attacks = attacks_data["results"].sort_by {|a| a["name"]}
+sorted_attacks.each do |attack|
+  unless attack["name"].include?("--") || attack["name"].include?("10")
+    Attack.create(name: attack["name"])
+  end
 end
