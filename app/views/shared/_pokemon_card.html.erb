@@ -23,7 +23,7 @@
             <div class="attacks pb-3 border-bottom h-60">
               <% pokemon.attacks.each do |attack| %>
                 <div class="">
-                  <p><%= attack.name %>: <%= attack.description %></p>
+                  <p><%= attack.name.capitalize %>: <%= attack.description %></p>
                 </div>
               <% end %>
             </div>
