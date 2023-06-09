@@ -1,20 +1,86 @@
 // // Specific CSS for your home-page
 
-.img-bot{
-  transform: translateY(500px);
-  animation: 0.9s titleAnimation linear forwards;
-}
-
 .title-bot {
   transform: translateY(300px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
 }
 
-.title-top{
+.title-top {
   transform: translateY(-250px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
+}
+
+.curtain-right {
+  position: relative;
+}
+
+.curtain-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationRight 2s forwards;
+  z-index: 500;
+}
+
+@keyframes imageAnimationRight {
+  to {
+    transform: translateX(-500px);
+  }
+}
+
+.curtain-left {
+  position: relative;
+}
+
+.curtain-left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationLeft 2s forwards;
+  z-index: 500;
+}
+@keyframes imageAnimationLeft {
+  to {
+    transform: translateX(500px);
+  }
+}
+
+.curtain-bot {
+  position: relative;
+}
+
+.curtain-bot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: .9s imageAnimationBot 2s forwards;
+  z-index: 500;
+}
+
+@keyframes imageAnimationBot {
+  to {
+    transform: translateY(500px);
+  }
 }
 
 @keyframes titleAnimation {
