@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="home-map"
 export default class extends Controller {
   connect() {
-    console.log('hello')
     const player = document.querySelector('.player')
     const player_pos = {
         x: parseInt(window.innerWidth / 2),
@@ -14,8 +13,15 @@ export default class extends Controller {
         y: 0
     }
 
-    const backgroundWidth = 1600;
-    const backgroundHeight = 1000;
+    const backgroundWidth = window.innerWidth;
+    const backgroundHeight = window.innerHeight;
+
+    const collisionLocations = [
+      { x: 30, y: 55, redirectUrl: 'http://www.google.com' },
+      { x: 90, y: 90, redirectUrl: 'http://www.facebook.com' },
+      { x: 90, y: 10 },
+      { x: 80, y: 50 },
+    ];
 
     function run(){
         player_pos.x += player_move.x
@@ -39,7 +45,28 @@ export default class extends Controller {
 
         requestAnimationFrame(run)
     }
-     run()
+
+    function checkCollisionAndRedirect() {
+      const playerBounds = player.getBoundingClientRect();
+
+      for (const location of collisionLocations) {
+        const collisionX = (location.x / 100) * backgroundWidth;
+        const collisionY = (location.y / 100) * backgroundHeight;
+
+        if (
+          playerBounds.x < collisionX + player.offsetWidth &&
+          playerBounds.x + player.offsetWidth > collisionX &&
+          playerBounds.y < collisionY + player.offsetHeight &&
+          playerBounds.y + player.offsetHeight > collisionY
+        ) {
+          window.location.href = location.redirectUrl;
+        }
+      }
+
+      requestAnimationFrame(checkCollisionAndRedirect);
+    }
+    run()
+     checkCollisionAndRedirect();
 
     window.addEventListener('keydown', function(e){
         if(e.key == "ArrowUp"){
@@ -65,7 +92,7 @@ export default class extends Controller {
         }
         player.classList.add('active')
         if(e.key == "a") {
-          window.location = 'http://www.google.com'
+          window.location = 'http://www.pokemon.com'
         }
 
     })

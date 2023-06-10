@@ -14,7 +14,6 @@ pokedex = User.new(
   email: "pokedex@gmail.com",
   password: "pokedex"
 )
-
 pokedex.save!
 
 User.create(
