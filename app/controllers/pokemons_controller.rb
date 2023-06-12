@@ -16,7 +16,6 @@ class PokemonsController < ApplicationController
     # debugger
     if @pokemon.valid?
       if @pokemon.last_step?
-        debugger
         MidJourneyResult.new(@pokemon, params.dig(:pokemon, :task_id)).call
         if @pokemon.photo.attached?
           @pokemon.save
