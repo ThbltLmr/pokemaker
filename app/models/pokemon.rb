@@ -15,23 +15,10 @@ class Pokemon < ApplicationRecord
     validates :name, presence: true
   end
 
-  with_options if: -> { step == "types" } do
-    validate :debugger
-    validates :types_ids, length: { minimum: 1, maximum: 2, message: "number should be one or two" }
-  end
-
-  def debugger
-    debugger
-  end
-
   with_options if: -> { step == "prompt" } do
     validates :prompt, length: { minimum: 20, maximum: 500 }
     validates :prompt, format: { with: /A Pokemon.*/,
       message: "must start with 'A Pokemon'" }
-  end
-
-  with_options if: -> { step == "attacks" } do
-    validates :attacks, length: { is: 3 }
   end
 
   with_options if: -> { step == "bio" } do
