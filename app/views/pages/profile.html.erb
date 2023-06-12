@@ -16,24 +16,14 @@
     </div>
   </div>
   <div class="chat">
+    <%= render "pokemons/chat" %>
   </div>
   <div class="pokemon_cards d-none">
     <% current_user.pokemons.first(6).each do |pokemon| %>
       <%= render "shared/pokemon_bubble" %>
     <% end %>
   </div>
-  <div class="profile-card">
+  <div class="profile-card d-none">
     <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: false %>
   </div>
 </div>
-
-
-
-
-    <%# i = 0 %>
-    <%# blabla.each  %>
-    <%# if i % 12 %>
-    <%# <div></div> %>
-    <%# end %>
-    <%# i += 1 %>
-    <%# end %>

@@ -1,0 +1,29 @@
+.chat-container {
+  width: 30vw;
+  height: 90vh;
+  border: solid grey;
+  border-radius: 8px;
+  position: relative;
+}
+
+.chat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: black;
+}
+
+.chat {
+  padding: 1rem;
+}
+
+.send {
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  bottom: 2rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
