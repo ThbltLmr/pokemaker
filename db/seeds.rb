@@ -64,3 +64,13 @@ sorted_attacks.each do |attack|
     Attack.create(name: attack["name"], description: description)
   end
 end
+
+Pokemon.all.each do |pokemon|
+  rand(1..10).times do
+    vote = Vote.new
+    vote.user = pokedex
+    vote.pokemon = pokemon
+    vote.save!
+    puts "Pokedex voted for #{pokemon.name}"
+  end
+end
