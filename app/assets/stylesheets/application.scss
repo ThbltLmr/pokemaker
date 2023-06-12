@@ -11,3 +11,11 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/pokemon_new";
+
+
+@font-face {
+  font-family: 'Pokemon Classic';
+  src: font-url('PokemonClassic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

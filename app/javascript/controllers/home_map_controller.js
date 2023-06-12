@@ -43,29 +43,29 @@ export default class extends Controller {
 
     window.addEventListener('keydown', function(e){
         if(e.key == "ArrowUp"){
-            player_move.y = 3
+            player_move.y = 5
             player.classList.add('player-front')
             player.classList.remove('player-back', 'player-left', 'player-right')
         }
 
         if(e.key == "ArrowDown"){
-            player_move.y = -3
+            player_move.y = -5
             player.classList.add('player-back')
             player.classList.remove('player-front', 'player-left', 'player-right')
         }
         if(e.key == "ArrowLeft"){
-            player_move.x = -3
+            player_move.x = -5
             player.classList.add('player-left')
             player.classList.remove('player-back', 'player-front', 'player-right')
         }
         if(e.key == "ArrowRight"){
-            player_move.x = 3
+            player_move.x = 5
             player.classList.add('player-right')
             player.classList.remove('player-back', 'player-left', 'player-front')
         }
         player.classList.add('active')
         if(e.key == "a") {
-          window.location = 'http://www.google.com'
+          window.location = 'http://www.pokemaker.xyz/pokemons/new'
         }
 
     })
