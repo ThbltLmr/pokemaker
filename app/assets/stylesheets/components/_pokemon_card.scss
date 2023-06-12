@@ -127,5 +127,42 @@
 
 .main-img {
   margin-left: 1rem;
-  border: solid yellow;
+  border: solid #ed6607;
+  box-shadow: 2px 1px 8px black;
+}
+
+.fire {
+  background-color: rgb(240, 54, 21);       // fire
+}
+
+.water {
+  background-color: rgba(120, 148, 255, 1); // water
+}
+
+.lightning {
+  background-color: rgb(232, 232, 34);      // lightning
+}
+
+.grass {
+  background-color: rgb(8, 205, 77);        // grass
+}
+
+.darkness {
+  background-color: rgb(32, 48, 112);       // darkness
+}
+
+.fighting {
+  background-color: rgb(148, 109, 37);      // fighting
+}
+
+.metal {
+  background-color: rgb(172, 175, 189);     // metal
+}
+
+.fairy {
+  background-color: rgb(237, 85, 214);      // fairy
+}
+
+.psychic {
+  background-color: rgb(78, 3, 66);         // psychic
 }
