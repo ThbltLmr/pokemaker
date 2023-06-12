@@ -99,3 +99,24 @@
 .attacks-text p {
   font-size: 12px;
 }
+
+.gif-loading {
+  height: 91vh;
+  width: 90vw;
+  text-align: center;
+  color: black;
+  margin: auto;
+  #loading {
+    width: 40%;
+    height: 40%;
+    margin: 5% 30% 0 30%;
+    padding: 3%;
+  }
+  h2 {
+    margin-top: 5px;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: white;
+    padding: 5px;
+  }
+}
