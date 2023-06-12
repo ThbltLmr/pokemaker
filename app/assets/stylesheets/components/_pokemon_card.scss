@@ -1,4 +1,4 @@
-:root {
+.shiny {
   --step: 5%;
   --pattern: url("http://allyourhtml.club/carousel/pattern.webp") center / 75%;
   --rainbow: repeating-linear-gradient(
@@ -30,6 +30,7 @@
     )
     var(--bg-x) var(--bg-y) / 300%;
 }
+
 .card_pokemon {
   width: 380px;
   height: 527px;
@@ -46,15 +47,12 @@
   }
 }
 
-
-
 .card__back {
   background-image: image-url("pokemon_card_back.png");
   background-size: cover;
   border-radius: 17px;
   height: 100%;
 }
-
 
 .card__wrapper {
   perspective: 600px;
@@ -76,11 +74,13 @@
   height: 100%;
   clip-path: inset(0 0 0 0 round 15px);
 }
+
 .card__front img {
   display: block;
   max-width: 100%;
   max-height: 100%;
 }
+
 /* soft light */
 .card__layer1 {
   position: absolute;
@@ -95,6 +95,7 @@
     rgba(255, 255, 255, 0) 90%
   );
 }
+
 /* first crazy blend  */
 .card__layer2 {
   position: absolute;
@@ -127,5 +128,43 @@
 
 .main-img {
   margin-left: 1rem;
-  border: solid yellow;
+  border: solid #ed6607;
+  box-shadow: 2px 1px 8px black;
+}
+
+.fire {
+  background-color: rgb(240, 54, 21);       // fire
+}
+
+.water {
+  background-color: rgba(120, 148, 255, 1); // water
+}
+
+.lightning {
+  background-color: #e6e659;      // lightning
+}
+
+.grass {
+  background-color: rgb(8, 205, 77);        // grass
+}
+
+.darkness {
+  background-color: #161e3c;       // darkness
+  color: white;
+}
+
+.fighting {
+  background-color: #e69500;      // fighting
+}
+
+.metal {
+  background-color: rgb(172, 175, 189);     // metal
+}
+
+.fairy {
+  background-color: #f882e6;      // fairy
+}
+
+.psychic {
+  background-color: #711963;         // psychic
 }
