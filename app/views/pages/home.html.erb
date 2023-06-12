@@ -29,7 +29,12 @@
   <%#= render 'shared/pokemon_card' %>
 
   <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0" style="z-index: 9;">
-    <div class="map-background vw-100 vh-100"></div>
+    <div class="map-background vw-100 vh-100 position-relative">
+      <%= image_tag "pokemaker_logo.gif", class: "logo" %>
+      <div id="shein" >Chen's Lab</div>
+      <div id="map-direction" >Map</div>
+      <%= image_tag "pokedex.png", id: "position-bottom-right" %>
+    </div>
     <div class="player player-back"></div>
   </div>
 </div>
