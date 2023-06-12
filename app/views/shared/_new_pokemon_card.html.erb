@@ -1,0 +1,40 @@
+<div class="card_pokemon_alternate" data-controller="shiny" data-action="click->shiny#turn mousemove->shiny#shine">
+  <div class="card__wrapper">
+    <div class="card__3d" data-shiny-target="movement">
+      <div class="card__back" data-shiny-target="back">
+      </div>
+      <div class="card__front d-none p-2" data-shiny-target="front">
+        <div class="bg-secondary h-100 rounded">
+          <div class="d-flex justify-content-between align-items-center p-2">
+            <h3> <%= pokemon.name.capitalize %> </h3>
+            <div class="d-flex justify-content-between align-items-center gap-3">
+              <h3>HP 120</h3>
+              <div class="d-flex justify-content-between gap-1 ">
+                <% pokemon.types.each do |type| %>
+                  <%= image_tag "#{type.name}.png", :class => "photo-energy" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <%= cl_image_tag pokemon.photo.key, class: "main-img", transformation: [
+            {height: 1024, width: 1024, crop: :crop, x: 0, y:0},
+            {height: 240, width: 320, crop: :fill}] %>
+          <div class="px-4 py-2">
+            <div class="attacks pb-3 border-bottom h-60">
+              <% pokemon.attacks.each do |attack| %>
+                <div class="attacks-text">
+                  <p><%= attack.name.capitalize %>: <%= attack.description %></p>
+                </div>
+              <% end %>
+            </div>
+            <div class="py-2 h-40">
+              <p> <%= pokemon.bio %> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__layer1 d-none" data-shiny-target="layer1"></div>
+      <div class="card__layer2 d-none" data-shiny-target="layer2"></div>
+    </div>
+  </div>
+</div>

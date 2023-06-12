@@ -165,13 +165,32 @@
   margin-top: -9px;
 }
 
-.pokemon-card {
-  width: 30%;
-  height: 70%;
+.card_pokemon_alternate {
   position: absolute;
-  background-color: aquamarine;
   right: 10%;
-  top: 17%;
+  top: 18%;
+  width: 334px;
+  height: 459px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  h3 {
+    margin: 0px;
+  }
+
+  p {
+    font-size: small;
+    }
+}
+
+
+@media (max-width: 1280px) and (max-height: 800px) {
+  .pokemon-card {
+    /* Réduire la largeur et la hauteur à 80% de leur valeur originale */
+    width: 24%; /* 80% de 30% */
+    height: 56%; /* 80% de 70% */
+    /* La position reste inchangée */
+  }
 }
 
 .avatar {
@@ -223,6 +242,10 @@
   position: absolute;
   left: -2px;
   top: -28px;
+}
+
+.card_pokemon.card_pokemon-alternate {
+
 }
 
 @media (max-width: 768px) {
