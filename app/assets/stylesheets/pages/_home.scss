@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> ae9c98fd63afff875c1b4a254abd00a5be0e255d
-// // Specific CSS for your home-page
 .title-bot {
   transform: translateY(300px);
   animation: .9s titleAnimation linear forwards;
@@ -64,29 +60,29 @@
   }
 }
 
-.curtain-bot {
-  position: relative;
-}
+// .curtain-bot {
+//   position: relative;
+// }
 
-.curtain-bot::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  animation: .9s imageAnimationBot 2s forwards;
-  z-index: 500;
-}
+// .curtain-bot::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: black;
+//   animation: .9s imageAnimationBot 2s forwards;
+//   z-index: 500;
+// }
 
-@keyframes imageAnimationBot {
-  to {
-    transform: translateY(500px);
-  }
-}
+// @keyframes imageAnimationBot {
+//   to {
+//     transform: translateY(500px);
+//   }
+// }
 
 @keyframes titleAnimation {
   to {
