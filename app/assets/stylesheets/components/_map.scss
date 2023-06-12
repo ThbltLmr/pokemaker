@@ -7,6 +7,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -999;
+  height: 100vh;
+  width: 100vw;
+  background-position: top right;
 }
 
 .player {
@@ -19,6 +22,40 @@
   position: fixed;
   z-index: 999;
 }
+
+#pokelab {
+  z-index: 1000;
+  border: 1px solid red;
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  bottom: 27%;
+  left: 33%;
+  transform: translate(-50%, -50%)
+}
+
+#pokedex {
+  z-index: 1000;
+  border: 3px solid purple;
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  bottom: 1%;
+  left: 90%;
+  transform: translate(-50%, -50%)
+}
+
+#home-profil {
+  z-index: 1000;
+  border: 3px solid blue;
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  bottom: 65%;
+  left: 36%;
+  transform: translate(-50%, -50%)
+}
+
 
 .player-left {
   background-image: image-url("player_left.png");
@@ -51,14 +88,3 @@
       background-position: -160px 0;
   }
 }
-
-// #maison {
-//   z-index: 1000;
-//   border: 1px solid red;
-//   height: 15%;
-//   width: 15%;
-//   position: absolute;
-//   bottom: 27%;
-//   left: 33%;
-//   transform: translate(-50%, -50%)
-// }

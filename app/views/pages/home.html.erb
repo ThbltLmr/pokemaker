@@ -28,8 +28,12 @@
   </div>
   <%#= render 'shared/pokemon_card' %>
 
-  <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0" style="z-index: 9;">
-    <div class="map-background vw-100 vh-100"></div>
-    <div class="player player-back"></div>
+  <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0 map-background" style="z-index: 9;">
+    <%# <div class="vw-100 vh-100 map-background"> %>
+    <div id="pokelab" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
+    <div id="pokedex" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
+     <div id="home-profil" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
+    <%# </div> %>
+    <div class="player player-back" data-home-map-target="player"></div>
   </div>
 </div>
