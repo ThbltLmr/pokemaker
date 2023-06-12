@@ -17,15 +17,15 @@
       <input type="text" class="form-control" placeholder="Find a move" name="search" id="search" data-autocomplete-target="search" data-action="input->autocomplete#autocomplete">
       <div data-autocomplete-target="list" class="menu-item">
       </div>
-      <%= f.input :attacks, label: "Attack 1", id: "attack-one", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-      input_html: { "data-autocomplete-target": "attackOne", value: "", name: "pokemon" },
+      <%= f.association :attacks, label: "Attack 1", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      input_html: { "data-autocomplete-target": "attackOne", value: "" },
       placeholder: "?",
       label_html: {class: "attacks-label"}%>
-      <%= f.input :attacks, label: "Attack 2", id: "attack-two", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      <%= f.association :attacks, label: "Attack 2", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
       input_html: { "data-autocomplete-target": "attackTwo", value: "" },
       placeholder: "?",
       label_html: {class: "attacks-label"} %>
-      <%= f.input :attacks, label: "Attack 3", id: "attack-three", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      <%= f.association :attacks, label: "Attack 3", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
       input_html: { "data-autocomplete-target": "attackThree", value: "" },
       placeholder: "?",
       label_html: {class: "attacks-label"} %>
