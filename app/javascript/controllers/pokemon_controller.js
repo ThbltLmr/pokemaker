@@ -44,6 +44,9 @@ export default class extends Controller {
         this.chenTarget.classList.remove("d-none")
         this.gifTarget.innerHTML = ""
         this.formTarget.innerHTML = data.html
+        this.formTarget.insertAdjacentHTML("beforeend",
+        "<a href='/pokemons' class='text-decoration-none align-self-center mt-2'><button class='btn btn-primary text-white'>To Pokemon gallery</button></a>"
+        )
       }
     } else {
       this.stepTarget.innerHTML = data.html
