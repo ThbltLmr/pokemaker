@@ -1,47 +1,40 @@
-
-<div class="grid-container">
-  <div class="card">
-    <div class="smallIcon">
-      <div class="Icon"></div>
-      <div class="Name"></div>
-      <div class="Roles"></div>
-      <div class="Descripion"></div>
+<div class="home">
+ <nav class="navbar">
+   <h1 class="title-pokedex">Pokedex</h1>
+   <div class="grey-content">
+     <div id="carre"></div>
+   </div>
+   <div class="big-button"></div>
+    <div class="small-button">
+      <div class="small-button-1"></div>
+      <div class="small-button-2"></div>
+      <div class="small-button-3"></div>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="smallIcon">
-      <div class="Icon"></div>
-      <div class="Name"></div>
-      <div class="Roles"></div>
-      <div class="Descripion"></div>
+   <div class="filtre">
+    <button type="button" class="btn btn-secondary" id="fil">Filtre</button>
+    <button type="button" class="btn btn-secondary" id="fil">Filtre</button>
+    <button type="button" class="btn btn-secondary" id="fil">Filtre</button>
+   </div>
+   <%= link_to root_path do %>
+     <button type="button" class="btn btn-secondary" id="back">Back</button>
+    <% end %>
+ </nav>
+ <div class="container">
+ <div class="like-count">
+    <div class="heart-icon">
+        <p><i class="fa-solid fa-heart" style="color: #e70808;"></i> 0</p>
     </div>
+ </div>
+  <div class="list">
+      <% @pokemons.each_with_index do |pokemon, index| %>
+        <% break if index >= 10 %>
+        <%= render 'shared/pokemon_bubble' %>
+      <% end %>
   </div>
-
-  <div class="card">
-    <div class="smallIcon">
-      <div class="Icon"></div>
-      <div class="Name"></div>
-      <div class="Roles"></div>
-      <div class="Descripion"></div>
-    </div>
+  <div class="pokemon-card">
+    <%= render 'shared/pokemon_card' %>
   </div>
-
-  <div class="card">
-    <div class="smallIcon">
-      <div class="Icon"></div>
-      <div class="Name"></div>
-      <div class="Roles"></div>
-      <div class="Descripion"></div>
-    </div>
+  <div class="avatar">
   </div>
-
-  <div class="card">
-    <div class="smallIcon">
-      <div class="Icon"></div>
-      <div class="Name"></div>
-      <div class="Roles"></div>
-      <div class="Descripion"></div>
-    </div>
-  </div>
+ </div>
 </div>

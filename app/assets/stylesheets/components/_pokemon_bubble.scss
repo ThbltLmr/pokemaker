@@ -1,11 +1,29 @@
 .pokemon-bubble {
   width: 250px;
-  height: 100px;
+  height: 96px;
   border-radius: 50px;
+  top: 9px;
   background-color: rgba(184, 184, 184, 0.85);
   box-shadow: 1px 2px 3px grey;
   position: relative;
   display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pokemon-bubble:hover {
+  animation: pulse 0.7s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #name {
@@ -33,19 +51,18 @@
 }
 
 .like-bubble {
-  width: 55px;
-  height: 30px;
+  width: 51px;
+  height: 23px;
   background-color: rgba(216, 128, 128, 0.9);
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  bottom: -11px;
+  bottom: -6px;
   right: 16px;
   gap: 3px;
   padding: 8px;
-
 }
 
 .like-bubble, p {
