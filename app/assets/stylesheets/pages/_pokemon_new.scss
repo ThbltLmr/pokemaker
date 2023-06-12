@@ -126,3 +126,17 @@
     padding: 5px;
   }
 }
+
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item ul {
+  list-style-type: none;
+  z-index: 100;
+
+  position: absolute;  /* <-- added declarations */
+  left: 0; top: 100%;  /*     here               */
+  width: 100%;         /*     and here...        */
+}

@@ -22,6 +22,8 @@ class PokemonsController < ApplicationController
           create_types(@pokemon, params.dig(:pokemon, :type_ids))
           create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
           render json: { html: reveal(@pokemon) }
+        # elsif @pokemon.step == "bio"
+        #   debugger
         else
           render json: { html: loading }
         end

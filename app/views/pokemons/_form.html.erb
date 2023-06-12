@@ -13,12 +13,23 @@
 
     <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}", placeholder: "A Pokemon looking like an electric mouse..." } %>
 
-    <%= f.association :attacks, label: "Attack 1", selected: "#{params.dig(:pokemon, :attack_ids)[1].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"}%>
-    <%= f.association :attacks, label: "Attack 2", selected: "#{params.dig(:pokemon, :attack_ids)[3].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"} %>
-    <%= f.association :attacks, label: "Attack 3", selected: "#{params.dig(:pokemon, :attack_ids)[5].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"} %>
+    <div class=<%="#{'d-none' if f.object.current_step != "attacks"} mb-2"%> data-controller="autocomplete">
+      <input type="text" class="form-control" placeholder="Find a move" name="search" id="search" data-autocomplete-target="search" data-action="input->autocomplete#autocomplete">
+      <div data-autocomplete-target="list" class="menu-item">
+      </div>
+      <%= f.input :attacks, label: "Attack 1", id: "attack-one", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      input_html: { "data-autocomplete-target": "attackOne", value: "", name: "pokemon" },
+      placeholder: "?",
+      label_html: {class: "attacks-label"}%>
+      <%= f.input :attacks, label: "Attack 2", id: "attack-two", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      input_html: { "data-autocomplete-target": "attackTwo", value: "" },
+      placeholder: "?",
+      label_html: {class: "attacks-label"} %>
+      <%= f.input :attacks, label: "Attack 3", id: "attack-three", disabled: true, wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+      input_html: { "data-autocomplete-target": "attackThree", value: "" },
+      placeholder: "?",
+      label_html: {class: "attacks-label"} %>
+    </div>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
     <%= f.error :base, class: "text-danger" %>
