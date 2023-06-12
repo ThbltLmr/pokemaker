@@ -23,12 +23,14 @@ class PokemonsController < ApplicationController
           create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
           render json: { html: reveal(@pokemon) }
         else
-          render json: {html: loading}
+          render json: { html: loading }
         end
       else
         @pokemon.next_step!
         render json: { html: partial }
       end
+    else
+      render json: { html: partial }, status: :unprocessable_entity
     end
   end
 
