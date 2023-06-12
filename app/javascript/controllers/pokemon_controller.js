@@ -31,6 +31,7 @@ export default class extends Controller {
       console.log
       this.stepTarget.innerHTML = ""
       this.element.classList.remove("container-shen")
+      this.element.classList.add("container-reveal")
       this.formTarget.innerHTML = data.html
     } else {
       this.stepTarget.innerHTML = data.html

@@ -1,19 +1,30 @@
   <div class="form-container">
+  <div class="pokemon-questions">
     <%= f.input :step, label: false, input_html: { value: f.object.current_step, class: "d-none" } %>
     <%= f.input :task_id, label: false, input_html: { class: "d-none" } %>
     <%= f.input :name, label: false, placeholder: "Enter a name", input_html: { class: "#{'d-none' if f.object.current_step != "name"}" } %>
 
-    <%= f.association :types, checked: params.dig(:pokemon, :type_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "types"}", "data-pokemon-target": "types" }, input_html: { data: {action: "change->pokemon#checkboxlimit"} }, as: :check_boxes %>
+    <%= f.association :types, checked: params.dig(:pokemon, :type_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "types"} types-fieldset", "data-pokemon-target": "types" },
+    input_html: { data: {action: "change->pokemon#checkboxlimit"}, class: "hidden-input" },
+    label_method: lambda { |type| image_tag("#{type.name}.png", size: 50)},
+    item_wrapper_class: 'tag-item',
+    legend_tag: false,
+    as: :check_boxes %>
 
     <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}" } %>
 
-    <%= f.association :attacks, label: "Attack 1", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}", multiple: false } %>
-    <%= f.association :attacks, label: "Attack 2", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
-    <%= f.association :attacks, label: "Attack 3", selected: params.dig(:pokemon, :attack_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"}" } %>
+    <%= f.association :attacks, label: "Attack 1", selected: "#{params.dig(:pokemon, :attack_ids)[1].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+    label_html: {class: "attacks-label"} %>
+    <%= f.association :attacks, label: "Attack 2", selected: "#{params.dig(:pokemon, :attack_ids)[3].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+    label_html: {class: "attacks-label"} %>
+    <%= f.association :attacks, label: "Attack 3", selected: "#{params.dig(:pokemon, :attack_ids)[5].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
+    label_html: {class: "attacks-label"} %>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
-
-    <%= f.submit "Next step", class: "btn btn-primary" %>
+  </div>
+  <div class="pokemon-submit">
+    <span id="blink" data-controller="blink"><i class="fa-solid fa-caret-right submit-button"></i></span><%= f.submit "Next step", class: "submit-button mb-3" %>
+  </div>
   </div>
   <div class="dialog-container" data-controller="typed" data-typed-dialog-value="<%= @pokemon.instructions_for(@pokemon.current_step).to_json %>">
 
