@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   get "/pokemons_new", to: "pokemons#new"
   get "/pokemons_index", to: "pokemons#index"
   get "/profile", to: "pages#profile"
-  get '/map_home', to: 'pages#map'
 end
