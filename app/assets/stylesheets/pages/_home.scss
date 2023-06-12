@@ -1,15 +1,20 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae9c98fd63afff875c1b4a254abd00a5be0e255d
 // // Specific CSS for your home-page
 .title-bot {
   transform: translateY(300px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .title-top {
   transform: translateY(-250px);
   animation: .9s titleAnimation linear forwards;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .curtain-right {
@@ -87,4 +92,78 @@
   to {
     transform: initial;
   }
+}
+
+.swashOut {
+  -webkit-animation-name: swashOut;
+  animation-name: swashOut;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes swashOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes swashOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 5s;
 }
