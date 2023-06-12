@@ -3,7 +3,7 @@ import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form']
+  static targets = ['step', 'types', 'form', 'gif', 'chen']
 
   connect() {
     this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -27,12 +27,27 @@ export default class extends Controller {
 
     const response = await fetch("/pokemons", options)
     const data = await response.json()
+    console.log(data.html)
     if (document.getElementById("pokemon_step").value === 'bio') {
-      console.log
-      this.stepTarget.innerHTML = ""
-      this.element.classList.remove("container-shen")
-      this.element.classList.add("container-reveal")
-      this.formTarget.innerHTML = data.html
+      this.chenTarget.classList.remove("container-shen")
+      this.chenTarget.classList.add("container-reveal")
+      if (data.html.includes("loading")) {
+        this.chenTarget.classList.add("d-none")
+        this.gifTarget.classList.remove("d-none")
+        this.gifTarget.innerHTML = data.html
+        setTimeout(() => {
+          console.log("loading");
+          this.step(event);
+        }, 500);
+      } else {
+        console.log("done loading");
+        this.chenTarget.classList.remove("d-none")
+        this.gifTarget.innerHTML = ""
+        this.formTarget.innerHTML = data.html
+        this.formTarget.insertAdjacentHTML("beforeend",
+        "<a href='/pokemons' class='text-decoration-none align-self-center mt-2'><button class='btn btn-primary text-white'>To Pokemon gallery</button></a>"
+        )
+      }
     } else {
       this.stepTarget.innerHTML = data.html
       this.fuckMultiple()

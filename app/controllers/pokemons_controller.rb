@@ -17,10 +17,14 @@ class PokemonsController < ApplicationController
     if @pokemon.valid?
       if @pokemon.last_step?
         MidJourneyResult.new(@pokemon, params.dig(:pokemon, :task_id)).call
-        @pokemon.save
-        create_types(@pokemon, params.dig(:pokemon, :type_ids))
-        create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
-        render json: { html: reveal(@pokemon) }
+        if @pokemon.photo.attached?
+          @pokemon.save
+          create_types(@pokemon, params.dig(:pokemon, :type_ids))
+          create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
+          render json: { html: reveal(@pokemon) }
+        else
+          render json: {html: loading}
+        end
       else
         @pokemon.next_step!
         render json: { html: partial }
@@ -36,6 +40,10 @@ class PokemonsController < ApplicationController
 
   def reveal(pokemon)
     render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon }, formats: [:html])
+  end
+
+  def loading
+    render_to_string(partial: "pokemons/loading", formats: [:html])
   end
 
   def form_builder
