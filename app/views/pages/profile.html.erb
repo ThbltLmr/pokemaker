@@ -1,31 +1,28 @@
-<div class="screen">
-  <div class="profile">
-    <div class="trainer">
-      <%= image_tag 'vegeta.png', :class => "avatar-custom" %>
-      <h3>Vegeta</h3>
+<div class= "home-profile">
+  <div class="profile-container">
+      <div class="decoration-buttons">
+        <div class="decoration-button decoration-button-red"></div>
+        <div class="decoration-button decoration-button-green"></div>
+        <div class="decoration-button decoration-button-blue"></div>
     </div>
-    <div class="stats">
-      <h3>Pokemons created:</h3>
-      <h3>Total likes:</h3>
-      <h3>Average likes/Pokemon:</h3>
+    <img class="avatar-profile" src=" ">
+    <div class="profile-box">
+      <h1 class= "title-name">Ash the trainer</h1>
     </div>
-    <div class="main_pokemon">
-      <h3>Most liked Pokemon:</h3>
-      <%= render "shared/pokemon_bubble" %>
-      <%# badge with likes (in abs) %>
+    <div class="profile-description">
+      <h1 class="text-describe">Pokemon Created: 180</h1>
+      <h1 class="text-describe">Total Votes: 0</h1>
+      <h1 class="text-describe">Average votes/Pokemons: 0</h1>
     </div>
+    <div class="footer-profile">
+      <h1 class="footer-describe">Best Pokemon:</h1>
+    </div>
+    <div class="bottom-right-image"></div>
   </div>
-  <div class="pokemon_cards">
-    <% current_user.pokemons.each do |pokemon| %>
+  <div class="list-profile">
+    <% @pokemons.each_with_index do |pokemon, index| %>
+      <% break if index >= 8 %>
       <%= render "shared/pokemon_bubble" %>
     <% end %>
   </div>
 </div>
-
-    <%# i = 0 %>
-    <%# blabla.each  %>
-    <%# if i % 12 %>
-    <%# <div></div> %>
-    <%# end %>
-    <%# i += 1 %>
-    <%# end %>

@@ -6,8 +6,9 @@ class PagesController < ApplicationController
 
   def map
   end
-  
+
   def profile
+    @pokemons = Pokemon.all
   end
 
   def map
