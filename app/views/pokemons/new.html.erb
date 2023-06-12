@@ -1,9 +1,11 @@
-<div class="lab-container">
-  <div class="container-shen" data-controller="pokemon">
+<div class="lab-container" data-controller="pokemon">
+  <div class="container-shen" data-pokemon-target="chen">
     <%= simple_form_for @pokemon, html: { class: "step-form-container", data: { "pokemon-target": "form", action: "submit->pokemon#step" } } do |f| %>
         <div data-pokemon-target="step" class="step-form-container">
           <%= render "pokemons/form", f: f %>
         </div>
       <% end %>
+  </div>
+  <div data-pokemon-target="gif" class="gif-loading d-none">
   </div>
 </div>
