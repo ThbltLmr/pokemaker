@@ -11,7 +11,7 @@
     legend_tag: false,
     as: :check_boxes %>
 
-    <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}" } %>
+    <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}", value: "A Pokemon" } %>
 
     <%= f.association :attacks, label: "Attack 1", selected: "#{params.dig(:pokemon, :attack_ids)[1].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
     label_html: {class: "attacks-label"} %>
@@ -21,6 +21,7 @@
     label_html: {class: "attacks-label"} %>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
+    <%= f.error :base, class: "text-danger" %>
   </div>
   <div class="pokemon-submit">
     <span id="blink" data-controller="blink"><i class="fa-solid fa-caret-right submit-button"></i></span><%= f.submit "Next step", class: "submit-button mb-3" %>
