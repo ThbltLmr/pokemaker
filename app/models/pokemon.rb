@@ -15,9 +15,13 @@ class Pokemon < ApplicationRecord
     validates :name, presence: true
   end
 
-  # with_options if: -> { step == "bio" } do
-  #   validates :bio, presence: true, length: { minimum: 20 }
-  # end
+  with_options if: -> { step == "prompt" } do
+    validates :prompt, presence: true, length: { minimum: 20, maximum: 500 }
+  end
+
+  with_options if: -> { step == "bio" } do
+    validates :bio, presence: true, length: { minimum: 10, maximum: 100 }
+  end
 
   def current_step
     (step || STEPS[0]).to_s

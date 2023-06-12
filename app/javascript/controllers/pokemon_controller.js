@@ -27,7 +27,6 @@ export default class extends Controller {
 
     const response = await fetch("/pokemons", options)
     const data = await response.json()
-    console.log(data.html)
     if (document.getElementById("pokemon_step").value === 'bio') {
       this.chenTarget.classList.remove("container-shen")
       this.chenTarget.classList.add("container-reveal")
