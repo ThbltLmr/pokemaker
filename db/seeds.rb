@@ -1,5 +1,6 @@
 require "open-uri"
 
+Vote.destroy_all
 Pokemon.destroy_all
 Type.destroy_all
 Attack.destroy_all
