@@ -29,10 +29,10 @@ export default class extends Controller {
     const data = await response.json()
     console.log(data.html)
     if (document.getElementById("pokemon_step").value === 'bio') {
-      this.chenTarget.classList.add("d-none")
       this.chenTarget.classList.remove("container-shen")
       this.chenTarget.classList.add("container-reveal")
       if (data.html.includes("loading")) {
+        this.chenTarget.classList.add("d-none")
         this.gifTarget.classList.remove("d-none")
         this.gifTarget.innerHTML = data.html
         setTimeout(() => {
@@ -41,6 +41,7 @@ export default class extends Controller {
         }, 500);
       } else {
         console.log("done loading");
+        this.chenTarget.classList.remove("d-none")
         this.gifTarget.innerHTML = ""
         this.formTarget.innerHTML = data.html
       }
