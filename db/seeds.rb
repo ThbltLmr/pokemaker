@@ -61,12 +61,12 @@ sorted_attacks.each do |attack|
   else
     description = attack_data["effect_entries"]["short_effect"]
   end
-    Attack.create(name: attack["name"], description: description)
+    Attack.create(name: attack["name"].capitalize, description: description)
   end
 end
 
 Pokemon.all.each do |pokemon|
-  rand(1..10).times do
+  rand(1..30).times do
     vote = Vote.new
     vote.user = pokedex
     vote.pokemon = pokemon
