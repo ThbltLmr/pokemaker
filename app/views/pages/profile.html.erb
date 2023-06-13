@@ -40,7 +40,9 @@
       </div>
     <% end %>
   </div>
-  <%= render "pokemons/chat", pokemon: Pokemon.last %>
+  <div>
+    <%= render "pokemons/chat", pokemon: Pokemon.last %>
+  </div>
   <div class="list-profile d-none">
     <% @pokemons.each_with_index do |pokemon, index| %>
       <% break if index >= 6 %>

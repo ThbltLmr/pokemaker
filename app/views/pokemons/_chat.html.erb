@@ -1,7 +1,6 @@
 <div class="chat-container" data-controller="message" data-message-sentences-value="<%= pokemon.sentences %>">
   <div class="chat-info">
-    <%= image_tag 'vegeta.png', :class => "avatar-custom-2" %>
-    <%# <%= cl_image_tag(Pokemon.last.photo.key, class: "avatar-custom-2") %>
+    <%= cl_image_tag pokemon.photo.key, :class => "avatar-custom-2" %>
     <h3><%= pokemon.name.capitalize %></h3>
   </div>
   <div class="chat" >
