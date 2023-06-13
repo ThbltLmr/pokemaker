@@ -42,7 +42,7 @@ class PokemonsController < ApplicationController
   end
 
   def reveal(pokemon)
-    render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon }, formats: [:html])
+    render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon, shine: true }, formats: [:html])
   end
 
   def loading
