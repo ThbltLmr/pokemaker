@@ -16,11 +16,11 @@ export default class extends Controller {
    });
   }
 
-  // playMusic(evt) {
-  //   console.log(evt.params)
+  playMusic(evt) {
+    console.log(evt.params)
 
-  //   this.audio.pause();
-  //   this.audio.currentTime = 0;
-  //   audio.play()
-  // }
+    this.audio.pause();
+    this.audio.currentTime = 0;
+    audio.play()
+  }
 }

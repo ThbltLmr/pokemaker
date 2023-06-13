@@ -6,6 +6,6 @@ export default class extends Controller {
     evt.preventDefault();
     evt.stopPropagation();
 
-    evt.currentTarget.classList.add('swashOut')
+    evt.currentTarget.classList.add('swashOut');
   }
 }
