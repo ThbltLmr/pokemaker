@@ -2,8 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="home-map"
 export default class extends Controller {
+  static values = { intersected: Boolean }
+  static targets = ['item', 'player']
+
   connect() {
-    console.log('hello')
     const player = document.querySelector('.player')
     const player_pos = {
         x: parseInt(window.innerWidth / 2),
@@ -14,8 +16,17 @@ export default class extends Controller {
         y: 0
     }
 
-    const backgroundWidth = 1600;
-    const backgroundHeight = 1000;
+    const backgroundWidth = window.innerWidth;
+    const backgroundHeight = window.innerHeight;
+
+    // const collisionLocations = [
+    //   { x: 30, y: 55, redirectUrl: '/pokemons/new' },
+    //   { x: 90, y: 90, redirectUrl: 'http://www.facebook.com' },
+    //   // { x: 90, y: 10 },
+    //   // { x: 80, y: 50 },
+    // ];
+
+    var that = this
 
     function run(){
         player_pos.x += player_move.x
@@ -37,9 +48,26 @@ export default class extends Controller {
         player.style.left = player_pos.x + 'px'
         player.style.bottom = player_pos.y + 'px'
 
+        that.itemTargets.forEach(item => {
+          if (that._isIntersecting(player, item)) {
+            // Check if this item has already been intersected
+            if (item.dataset.intersected == "false") {
+              const url = item.dataset.url;
+              const a = document.createElement('a');
+              a.href = url;
+              a.click();
+
+              item.dataset.intersected = 'true';
+            }
+          } else {
+            item.dataset.intersected = 'false';
+          }
+        });
+
         requestAnimationFrame(run)
     }
-     run()
+
+    run()
 
     window.addEventListener('keydown', function(e){
         if(e.key == "ArrowUp"){
@@ -65,7 +93,7 @@ export default class extends Controller {
         }
         player.classList.add('active')
         if(e.key == "a") {
-          window.location = 'http://www.pokemaker.xyz/pokemons/new'
+          window.location = 'http://www.pokemon.com'
         }
 
     })
@@ -75,5 +103,17 @@ export default class extends Controller {
         player_move.y = 0
         player.classList.remove('active')
     })
+  }
+
+  _isIntersecting(player, item) {
+    const playerRect = player.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+
+    return (
+      playerRect.left < itemRect.right &&
+      playerRect.right > itemRect.left &&
+      playerRect.top < itemRect.bottom &&
+      playerRect.bottom > itemRect.top
+    );
   }
 }
