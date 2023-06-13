@@ -42,4 +42,11 @@ class Pokemon < ApplicationRecord
     }
     step_instructions[key.to_sym]
   end
+
+  def sentences
+    [
+      "#{name}!!",
+      "#{name.first(2)*2}"
+    ]
+  end
 end
