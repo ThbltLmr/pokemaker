@@ -4,27 +4,44 @@
   border: solid grey;
   border-radius: 8px;
   position: relative;
+  background-color: red;
 }
 
 .chat-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   margin: 1rem;
-  border-bottom: black;
+  height: 20%;
 }
 
 .chat {
-  padding: 2rem;
+  padding: 1rem;
+  border: solid grey;
+  background-color: #d6d3d3;
+  height: 60%;
+  margin-inline: 2rem;
+  border-radius: 10px;
 }
 
 .send {
   width: 100%;
   padding: 1rem;
+  margin: 1rem;
   position: absolute;
+  justify-content: space-between;
   bottom: 0;
-  padding: 1rem;
+
+  input {
+    width: 95%;
+    border-radius: 3px;
+  }
+
+  button {
+    background-color: red;
+    border: none;
+  }
 }
 
 .typing-bubble {
