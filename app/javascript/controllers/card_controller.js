@@ -23,5 +23,10 @@ export default class extends Controller {
     const response = await fetch(`/pokemons/${id}/card`, options)
     const data = await response.json()
     this.locationTarget.innerHTML = data.html
+
+    if (this.element.classList.contains("home-profile")) {
+      this.locationTarget.classList.add("flex-column")
+      this.locationTarget.insertAdjacentHTML("beforeend", "<div class='d-flex justify-content-center mt-2'><a href='/profile'><button class='btn btn-primary'>Back</button></a></div>")
+    }
   }
 }

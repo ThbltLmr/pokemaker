@@ -1,9 +1,9 @@
-<div class="card_pokemon <%= shine ? "shiny" : "" %>" data-controller="shiny" data-action="click->shiny#turn mousemove->shiny#shine">
+<div class="card_pokemon <%= shine ? "shiny" : "" %>" <%= "data-controller=shiny" if !revealed %> data-action="click->shiny#turn mousemove->shiny#shine">
   <div class="card__wrapper">
     <div class="card__3d" data-shiny-target="movement">
-      <div class="card__back" data-shiny-target="back">
+      <div class="card__back <%= revealed ? "d-none" : "" %>" data-shiny-target="back">
       </div>
-      <div class="card__front d-none p-2" data-controller="background"  data-background-type-value="<%= pokemon.types.first.name %>" data-shiny-target="front">
+      <div class="card__front <%= revealed ? "" : "d-none" %> p-2" data-controller="background"  data-background-type-value="<%= pokemon.types.first.name %>" data-shiny-target="front">
         <div class="h-100 rounded" data-background-target="card">
           <div class="d-flex justify-content-between align-items-center p-2">
             <h3> <%= pokemon.name.capitalize %> </h3>
