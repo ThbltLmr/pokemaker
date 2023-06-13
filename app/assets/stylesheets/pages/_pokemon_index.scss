@@ -21,6 +21,18 @@
   box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.25), inset 11px -4px 1px rgba(0, 0, 0, 0.25);
 }
 
+.pokemon-card {
+  .card_pokemon {
+    width: 342px !important;
+    height: 474px !important;
+    margin-top: 5%;
+  }
+  .main-img {
+    width: 90%;
+    margin: 0 auto !important;
+  }
+}
+
 .small-button-1 {
   width: 23px;
   height: 21px;
@@ -134,9 +146,16 @@
   background-color: #C8C1C1;
 }
 
+.index-img {
+  border: solid #ed6607;
+  box-shadow: 2px 1px 8px black;
+  border-radius: 50%;
+}
+
 .main-container {
   width: 93%;
   height: 81%;
+  padding-right: 10%;
   position: relative;
   background-image: url(coverindex.avif);
   background-size: cover;
@@ -145,6 +164,7 @@
   border-radius: 20px;
   transform: translateY(6%);
   display: flex;
+  justify-content: space-between;
   border: 2px solid #000000;
 }
 

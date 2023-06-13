@@ -1,4 +1,26 @@
-.sign-up {
+.background-signup {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 40px 10px 10px 10px;
+  background-image: url('background-signup.jpg');
+  margin: 0;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background-signin {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 40px 10px 10px 10px;
+  background-image: url('lugia-background.jpg');
+  margin: 0;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container-signup {
  border : solid 5px black;
  height: fit-content ;
  width: 20rem;
@@ -6,7 +28,7 @@
  position: absolute;
  transform: translate(-50%,-50%);
  top: 40%;
- left: 90%;
+ left: 50%;
  border-radius: 10px;
  backdrop-filter: blur(10px);
  border: 2px solid rgba(255,255,255,0.1);
