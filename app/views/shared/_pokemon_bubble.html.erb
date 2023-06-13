@@ -1,14 +1,28 @@
 <div class="pokemon-bubble">
-  <%= image_tag 'pikachu.jpg', :class => "photo" %>
+  <% if current_user.nickname == "Pokedex" %>
+    <%= cl_image_tag pokemon.photo.tag, class: "index-img", transformation: [
+              {height: 500, width: 500, crop: :fill}] %>
+  <% else %>
+  <%= cl_image_tag pokemon.photo.key, class: "index-img", transformation: [
+              {height: 1024, width: 1024, crop: :crop, x: 0, y:0},
+              {height: 500, width: 500, crop: :fill}] %>
+  <% end %>
   <div class="bubble-info">
     <div class="energy">
-      <%= image_tag 'lightning.png', :class => "photo-energy" %>
-      <%= image_tag 'fighting.png', :class => "photo-energy" %>
+    <% if pokemon.types.count == 0 %>
+      <%= image_tag "lightning.png", :class => "photo-energy" %>
+      <%= image_tag "fire.png", :class => "photo-energy" %>
+    <% else %>
+      <%= image_tag "#{pokemon.types.first.name}.png", :class => "photo-energy" %>
+      <% if pokemon.types.count == 2 %>
+        <%= image_tag "#{pokemon.types.last.name}.png", :class => "photo-energy" %>
+      <% end %>
+    <% end %>
     </div>
-    <h2 id="name">Pikachu</h2>
+    <h2 id="name"><%= pokemon.name %></h2>
   </div>
   <div class="like-bubble">
     <i class="fa-solid fa-heart" style="color: #f70227;"></i>
-    <p>23</p>
+    <p><%= pokemon.votes.count %></p>
   </div>
 </div>

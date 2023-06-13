@@ -6,7 +6,7 @@ class PokemonsController < ApplicationController
   end
 
   def index
-    @pokemons = Pokemon.all
+    @pokemons = Pokemon.includes(:votes).all
   end
 
   def create
