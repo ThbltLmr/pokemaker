@@ -21,6 +21,11 @@
   border-radius: 27px;
   box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
   border: 2px solid #000000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-container:hover {
+  transform: scale(1.02);
 }
 
 .line-1 {
@@ -151,8 +156,6 @@
   letter-spacing: 0.05em;
 }
 
-
-
 .bottom-right-image {
   position: absolute;
   bottom: 13%;
@@ -165,12 +168,13 @@
 .fav-pokemon-profile {
   position: absolute;
   bottom: 5%;
+  left: 27%;
 }
 
 .footer-profile {
   position: absolute;
   top: 70%;
-  left: 12%;
+  left: 29%;
   line-height: 47px;
 }
 
