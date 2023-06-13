@@ -19,14 +19,14 @@
      <button type="button" class="btn btn-secondary" id="back">Back</button>
     <% end %>
  </nav>
- <div class="main-container">
+ <div class="main-container" data-controller="card">
   <div class="list">
     <% @pokemons.each_with_index do |pokemon, index| %>
       <% break if index >= 10 %>
       <%= render 'shared/pokemon_bubble', pokemon: pokemon %>
     <% end %>
   </div>
-  <div class="pokemon-card">
+  <div class="pokemon-card" data-card-target="location">
     <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: false %>
   </div>
 </div>

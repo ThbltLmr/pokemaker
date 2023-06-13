@@ -1,12 +1,17 @@
 class PokemonsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :card]
 
   def new
     @pokemon = Pokemon.new
   end
 
   def index
-    @pokemons = Pokemon.includes(:votes).all
+    @pokemons = Pokemon.includes(:votes).all.sort_by(&:created_at).reverse
+  end
+
+  def card
+    @pokemon = Pokemon.find(params[:id])
+    render json: { html: render_card(@pokemon) }
   end
 
   def create
@@ -43,6 +48,10 @@ class PokemonsController < ApplicationController
 
   def reveal(pokemon)
     render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon, shine: true }, formats: [:html])
+  end
+
+  def render_card(pokemon)
+    render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon, shine: false }, formats: [:html])
   end
 
   def loading

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/profile", to: "pages#profile"
   get '/map_home', to: 'pages#map'
   get "/search_attacks", to: "attacks#search", as: :search_attacks
+  get '/pokemons/:id/card', to: "pokemons#card", as: :card
 end
