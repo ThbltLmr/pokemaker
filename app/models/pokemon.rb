@@ -17,7 +17,7 @@ class Pokemon < ApplicationRecord
 
   with_options if: -> { step == "prompt" } do
     validates :prompt, length: { minimum: 20, maximum: 500 }
-    validates :prompt, format: { with: /A Pokemon.*/,
+    validates :prompt, format: { with: /A Pokemon.*/i,
       message: "must start with 'A Pokemon'" }
   end
 

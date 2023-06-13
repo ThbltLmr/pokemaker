@@ -6,9 +6,9 @@ export default class extends Controller {
   static targets = ['step', 'types', 'form', 'gif', 'chen']
 
   connect() {
-    this.element.querySelectorAll("select").forEach((dropdown) => {
-      dropdown.removeAttribute("multiple")
-    });
+    // this.element.querySelectorAll("select").forEach((dropdown) => {
+    //   dropdown.removeAttribute("multiple")
+    // });
   }
 
   fuckMultiple() {
@@ -49,7 +49,7 @@ export default class extends Controller {
       }
     } else {
       this.stepTarget.innerHTML = data.html
-      this.fuckMultiple()
+      // this.fuckMultiple()
     }
   }
 
