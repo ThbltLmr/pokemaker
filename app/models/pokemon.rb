@@ -15,9 +15,15 @@ class Pokemon < ApplicationRecord
     validates :name, presence: true
   end
 
-  # with_options if: -> { step == "bio" } do
-  #   validates :bio, presence: true, length: { minimum: 20 }
-  # end
+  with_options if: -> { step == "prompt" } do
+    validates :prompt, length: { minimum: 20, maximum: 500 }
+    validates :prompt, format: { with: /A Pokemon.*/i,
+      message: "must start with 'A Pokemon'" }
+  end
+
+  with_options if: -> { step == "bio" } do
+    validates :bio, presence: true, length: { minimum: 10, maximum: 100 }
+  end
 
   def current_step
     (step || STEPS[0]).to_s
@@ -41,5 +47,16 @@ class Pokemon < ApplicationRecord
       bio: ["It is time to write a short description of your Pokemon!<br>You can describe your Pokemon's personality, its habitat, its favourite food..."]
     }
     step_instructions[key.to_sym]
+  end
+
+  def sentences
+    [
+      "#{name.capitalize}!!!",
+      "#{name.capitalize}#{name.last*3}",
+      "#{name.capitalize}?",
+      "#{name.capitalize}!",
+      "#{name.capitalize} #{name}",
+      "#{name.capitalize}..."
+    ]
   end
 end

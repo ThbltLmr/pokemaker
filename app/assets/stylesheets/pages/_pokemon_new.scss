@@ -45,16 +45,21 @@
   border-radius: 30px;
   padding: 0 3%;
   margin: 0 0 0 9%;
+  font-family: 'Press Start 2P', cursive;
   // justify-content: space-between;
+  label {
+    font-size: 12px;
+  }
 }
 
 .dialog-container {
   width: 90%;
   height: 50% !important;
-  padding: 5% 0 0 0;
-  font-size: 24px;
+  padding: 5% 12% 0 0;
+  font-size: 16px;
   font-weight: 500;
   margin: 0 0 0 12%;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .types-inline {
@@ -86,11 +91,12 @@
   padding: 5px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 16px;
+  // font-family: 'Press Start 2P', cursive;
 }
 
 .attacks-label {
-  width: 15%;
+  width: 20%;
   margin: auto;
   font-size: 20px;
   font-weight: 500;
@@ -118,5 +124,36 @@
     border-radius: 30px;
     background-color: white;
     padding: 5px;
+  }
+}
+
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item ul {
+  list-style-type: none;
+  z-index: 100;
+  position: absolute;
+  left: 0; top: 100%;
+  width: 100%;
+  li {
+    font-size: 12px;
+  }
+}
+
+.attack-tag {
+  font-size: 12px;
+  justify-content: space-between;
+  border-radius: 5%;
+  border: 1px solid rgb(109, 4, 4);
+  background: rgba(207, 4, 4, 0.5);
+  font-family: 'Press Start 2P', cursive;
+  width: fit-content;
+  padding: 3px;
+  margin-bottom: 3px;
+  p {
+    margin: auto 0;
   }
 }

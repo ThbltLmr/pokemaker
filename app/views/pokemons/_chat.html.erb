@@ -1,0 +1,17 @@
+<div class="chat-container" data-controller="message" data-message-sentences-value="<%= pokemon.sentences %>">
+  <div class="chat-info">
+    <%= image_tag 'vegeta.png', :class => "avatar-custom-2" %>
+    <%# <%= cl_image_tag(Pokemon.last.photo.key, class: "avatar-custom-2") %>
+    <h3><%= pokemon.name.capitalize %></h3>
+  </div>
+  <div class="chat" >
+    <div class="messages" data-message-target="messages">
+    </div>
+    <div class="send">
+      <form  data-action="submit->message#send" autocomplete="off">
+          <input data-message-target="input" type="text" name="message" placeholder="Type your message..." />
+          <button type="submit"><i class="fa-solid fa-paper-plane" style="color: #ffffff;"></i></button>
+      </form>
+    </div>
+  </div>
+</div>

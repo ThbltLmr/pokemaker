@@ -6,9 +6,9 @@ export default class extends Controller {
   static targets = ['step', 'types', 'form', 'gif', 'chen']
 
   connect() {
-    this.element.querySelectorAll("select").forEach((dropdown) => {
-      dropdown.removeAttribute("multiple")
-    });
+    // this.element.querySelectorAll("select").forEach((dropdown) => {
+    //   dropdown.removeAttribute("multiple")
+    // });
   }
 
   fuckMultiple() {
@@ -27,7 +27,6 @@ export default class extends Controller {
 
     const response = await fetch("/pokemons", options)
     const data = await response.json()
-    console.log(data.html)
     if (document.getElementById("pokemon_step").value === 'bio') {
       this.chenTarget.classList.remove("container-shen")
       this.chenTarget.classList.add("container-reveal")
@@ -45,12 +44,12 @@ export default class extends Controller {
         this.gifTarget.innerHTML = ""
         this.formTarget.innerHTML = data.html
         this.formTarget.insertAdjacentHTML("beforeend",
-        "<a href='/pokemons' class='text-decoration-none align-self-center mt-2'><button class='btn btn-primary text-white'>To Pokemon gallery</button></a>"
+        "<div class='d-flex justify-content-center mt-2'><a href='/pokemons' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To Pokemon gallery</button></a><a href='/profile' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To your profile</button></a></div>"
         )
       }
     } else {
       this.stepTarget.innerHTML = data.html
-      this.fuckMultiple()
+      // this.fuckMultiple()
     }
   }
 
