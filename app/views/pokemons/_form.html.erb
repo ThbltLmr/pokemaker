@@ -17,7 +17,7 @@
       <input type="text" class="form-control" placeholder="Find a move" name="search" id="search" data-autocomplete-target="search" data-action="input->autocomplete#autocomplete">
       <div data-autocomplete-target="list" class="menu-item mb-2">
       </div>
-      <%= f.association :attacks, selected: "#{params.dig(:pokemon, :attack_ids)}" %>
+      <%= f.association :attacks, selected: "#{params.dig(:pokemon, :attack_ids)}", wrapper_html: { class: "d-none" } %>
     </div>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>

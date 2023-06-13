@@ -22,15 +22,33 @@ export default class extends Controller {
     this.listTarget.innerHTML = data.html
   }
 
+  addAttack(attack, id) {
+    this.element.insertAdjacentHTML("beforeend",
+    `<div class='attack-tag d-flex'><p>${attack}</p><button data-action='click->autocomplete#remove' id=${id}><i class="fa-solid fa-xmark"></i></button>`
+    )
+  }
+
+  remove(event) {
+    const id = event.currentTarget.id;
+    const select = this.element.querySelector("select")
+    select.querySelector(`option[value="${id}"]`).removeAttribute("selected")
+    event.currentTarget.parentNode.remove()
+  }
+
   fill(event) {
     event.preventDefault()
-    console.log(event.currentTarget.firstChild)
     const id = event.currentTarget.firstChild.id
     console.log(id)
     const select = this.element.querySelector("select")
-    select.querySelector(`option[value="${id}"]`).selected = "selected"
-    console.log(select)
-    console.log(select.querySelector(`option[value="${id}"]`))
-    this.listTarget.innerHTML = ""
+    if (select.querySelectorAll("option[selected='selected']").length > 2) {
+      window.alert("You have already selected three attacks");
+      this.listTarget.innerHTML = ""
+    } else {
+      select.querySelector(`option[value="${id}"]`).selected = "selected"
+      const attackName = select.querySelector(`option[value="${id}"]`).innerText
+      this.addAttack(attackName, id)
+      this.listTarget.innerHTML = "";
+      this.searchTarget.value = "";
+    }
   }
 }

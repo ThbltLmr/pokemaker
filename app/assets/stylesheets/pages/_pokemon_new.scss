@@ -135,8 +135,25 @@
 .menu-item ul {
   list-style-type: none;
   z-index: 100;
+  position: absolute;
+  left: 0; top: 100%;
+  width: 100%;
+  li {
+    font-size: 12px;
+  }
+}
 
-  position: absolute;  /* <-- added declarations */
-  left: 0; top: 100%;  /*     here               */
-  width: 100%;         /*     and here...        */
+.attack-tag {
+  font-size: 12px;
+  justify-content: space-between;
+  border-radius: 5%;
+  border: 1px solid rgb(109, 4, 4);
+  background: rgba(207, 4, 4, 0.5);
+  font-family: 'Press Start 2P', cursive;
+  width: fit-content;
+  padding: 3px;
+  margin-bottom: 3px;
+  p {
+    margin: auto 0;
+  }
 }

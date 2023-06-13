@@ -22,8 +22,6 @@ class PokemonsController < ApplicationController
           create_types(@pokemon, params.dig(:pokemon, :type_ids))
           create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
           render json: { html: reveal(@pokemon) }
-        # elsif @pokemon.step == "bio"
-        #   debugger
         else
           render json: { html: loading }
         end
@@ -57,7 +55,7 @@ class PokemonsController < ApplicationController
   end
 
   def pokemon_params
-    params.require(:pokemon).permit(:step, :prompt, :name, :bio, :task_id, :types_ids, :attacks_ids)
+    params.require(:pokemon).permit(:step, :prompt, :name, :bio, :task_id, :types_ids, :attack_ids)
   end
 
   def create_types(pokemon, types)
@@ -66,7 +64,7 @@ class PokemonsController < ApplicationController
 
   def create_attacks(pokemon, attacks)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i)
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[2].to_i)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[3].to_i)
-    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[5].to_i)
   end
 end
