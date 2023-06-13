@@ -3,7 +3,6 @@
   height: 95%;
   border: solid grey;
   border-radius: 8px;
-  position: relative;
   background-color: red;
 }
 
@@ -17,25 +16,30 @@
 }
 
 .chat {
+  // position: relative;
   padding: 1rem;
   border: solid grey;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   background-color: #d6d3d3;
-  height: 60%;
+  height: 72%;
   margin-inline: 2rem;
   border-radius: 10px;
 }
 
+.messages {
+  height: 80%;
+}
+
 .send {
+  height: 6%;
   width: 100%;
-  padding: 1rem;
-  margin: 1rem;
-  position: absolute;
-  justify-content: space-between;
-  bottom: 0;
 
   input {
-    width: 95%;
-    border-radius: 3px;
+    background: transparent;
+    border: none;
+    border-bottom: 5px solid white;
   }
 
   button {

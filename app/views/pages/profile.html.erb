@@ -1,6 +1,6 @@
 
 <div class= "home-profile">
-  <div class="profile-container">
+  <div class="profile-container d-none">
       <div class="decoration-buttons">
         <div class="decoration-button decoration-button-red"></div>
         <div class="decoration-button decoration-button-green"></div>
@@ -31,7 +31,7 @@
     <div class="fav-pokemon-profile">
       <% @pokemons.each_with_index do |pokemon, index| %>
         <% break if index >= 1 %>
-        <%= render "shared/pokemon_bubble" %>
+        <%= render "shared/pokemon_bubble", pokemon: pokemon %>
       <% end %>
     </div>
     <%= link_to root_path do %>
@@ -43,8 +43,8 @@
   <%= render "pokemons/chat", pokemon: Pokemon.last %>
   <div class="list-profile d-none">
     <% @pokemons.each_with_index do |pokemon, index| %>
-      <% break if index >= 8 %>
-      <%= render "shared/pokemon_bubble" %>
+      <% break if index >= 6 %>
+      <%= render "shared/pokemon_bubble", pokemon: pokemon %>
     <% end %>
   </div>
   <div class="profile-card d-none">
