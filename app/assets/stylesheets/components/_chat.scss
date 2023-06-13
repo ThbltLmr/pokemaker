@@ -16,7 +16,7 @@
 }
 
 .chat {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .send {
@@ -26,4 +26,27 @@
   bottom: 2rem;
   padding: 1rem;
   justify-content: space-between;
+}
+
+.typing-bubble {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: grey;
+  border-radius: 50%;
+  animation: typing 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes typing {
+  0%, 50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.right {
+  text-align: right;
 }

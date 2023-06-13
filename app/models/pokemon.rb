@@ -45,8 +45,12 @@ class Pokemon < ApplicationRecord
 
   def sentences
     [
-      "#{name}!!",
-      "#{name.first(2)*2}"
+      "#{name.capitalize}!!!",
+      "#{name.capitalize}#{name.last*3}",
+      "#{name.capitalize}?",
+      "#{name.capitalize}!",
+      "#{name.capitalize} #{name}",
+      "#{name.capitalize}..."
     ]
   end
 end

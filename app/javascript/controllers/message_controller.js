@@ -5,24 +5,37 @@ export default class extends Controller {
   static targets = ["messages","input"]
   static values = {sentences: Array}
 
-  connect() {
-    console.log("You're in message")
-  }
-
   send(event) {
-    console.log("Message sent");
     const input = this.inputTarget.value;
-    this.messagesTarget.insertAdjacentHTML("beforeend", `<div>${input}</div>`);
+    this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="right">${input}</div>`);
+    // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+
     event.preventDefault();
+
     setTimeout(() => {
       this.inputTarget.value = "";
     }, 10);
+
     setTimeout(() => {
-      this.messagesTarget.insertAdjacentHTML("beforeend", `<div>this.sentencesValue</div>` )
-    }, 2000);
+      this.showTypingBubble();
+    }, 1000);
+
+    setTimeout(() => {
+      this.hideTypingBubble();
+      const randomIndex = Math.floor(Math.random() * this.sentencesValue.length);
+      const response = this.sentencesValue[randomIndex]
+      this.messagesTarget.insertAdjacentHTML("beforeend", `<div>${response}</div>` )
+    }, 3000);
   }
 
-  randomSentence() {
-    
+  showTypingBubble() {
+    this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="pokemon-message"><span class="typing-bubble"></span><span class="typing-bubble"></span><span class="typing-bubble"></span></div>`);
+  }
+
+  hideTypingBubble() {
+    const typingBubble = this.messagesTarget.querySelector('.pokemon-message:last-child');
+    if (typingBubble) {
+      typingBubble.remove();
+    }
   }
 }

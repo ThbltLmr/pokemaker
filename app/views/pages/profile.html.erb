@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="chat">
-    <%= render "pokemons/chat" %>
+    <%= render "pokemons/chat", pokemon: Pokemon.last %>
   </div>
   <div class="pokemon_cards d-none">
     <% current_user.pokemons.first(6).each do |pokemon| %>
