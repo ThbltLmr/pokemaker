@@ -11,19 +11,22 @@
     legend_tag: false,
     as: :check_boxes %>
 
-    <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}" } %>
+    <%= f.input :prompt, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "prompt"}", placeholder: "A Pokemon looking like an electric mouse..." } %>
 
-    <%= f.association :attacks, label: "Attack 1", selected: "#{params.dig(:pokemon, :attack_ids)[1].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"} %>
-    <%= f.association :attacks, label: "Attack 2", selected: "#{params.dig(:pokemon, :attack_ids)[3].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"} %>
-    <%= f.association :attacks, label: "Attack 3", selected: "#{params.dig(:pokemon, :attack_ids)[5].to_i unless params.dig(:pokemon, :attack_ids).nil?}", wrapper_html: { class: "#{'d-none' if f.object.current_step != "attacks"} d-flex" },
-    label_html: {class: "attacks-label"} %>
+    <div class=<%="#{'d-none' if f.object.current_step != "attacks"} mb-2"%> data-controller="autocomplete">
+      <input type="text" class="form-control" placeholder="Find a move" name="search" id="search" data-autocomplete-target="search" data-action="input->autocomplete#autocomplete">
+      <div data-autocomplete-target="list" class="menu-item mb-2">
+      </div>
+      <%= f.association :attacks, checked: "#{params.dig(:pokemon, :attack_ids)&.reject(&:blank?)}", wrapper_html: { class: "d-none" } %>
+    </div>
+
+    <%= f.input :attacks, input_html: { value: params.dig(:pokemon, :attack_ids)&.reject(&:blank?) }, wrapper_html: { class: "d-none" } %>
 
     <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
+    <%= f.error :base, class: "text-danger" %>
   </div>
-  <div class="pokemon-submit">
-    <span id="blink" data-controller="blink"><i class="fa-solid fa-caret-right submit-button"></i></span><%= f.submit "Next step", class: "submit-button mb-3" %>
+  <div class="pokemon-submit mb-2">
+    <span id="blink" data-controller="blink"><i class="fa-solid fa-caret-right submit-button"></i></span><%= f.submit "Next step", class: "submit-button" %>
   </div>
   </div>
   <div class="dialog-container" data-controller="typed" data-typed-dialog-value="<%= @pokemon.instructions_for(@pokemon.current_step).to_json %>">
