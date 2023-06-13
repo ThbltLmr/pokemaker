@@ -64,8 +64,8 @@ class PokemonsController < ApplicationController
   end
 
   def create_attacks(pokemon, attacks)
-    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[0].to_i)
-    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i)
-    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[2].to_i)
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[0].to_i) if attacks.length > 0
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i) if attacks.length > 1
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[2].to_i) if attacks.length > 2
   end
 end
