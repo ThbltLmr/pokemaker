@@ -19,8 +19,9 @@ class PokemonsController < ApplicationController
         MidJourneyResult.new(@pokemon, params.dig(:pokemon, :task_id)).call
         if @pokemon.photo.attached?
           @pokemon.save
+          @attacks = params.dig(:pokemon, :attacks).split
           create_types(@pokemon, params.dig(:pokemon, :type_ids))
-          create_attacks(@pokemon, params.dig(:pokemon, :attack_ids))
+          create_attacks(@pokemon, @attacks)
           render json: { html: reveal(@pokemon) }
         else
           render json: { html: loading }
@@ -63,8 +64,8 @@ class PokemonsController < ApplicationController
   end
 
   def create_attacks(pokemon, attacks)
+    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[0].to_i)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[2].to_i)
-    PokemonAttack.create(pokemon: pokemon, attack_id: attacks[3].to_i)
   end
 end
