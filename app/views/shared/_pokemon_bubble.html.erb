@@ -1,6 +1,6 @@
 <div class="pokemon-bubble" data-action="click->card#show" id="<%= pokemon.id %>">
   <% if current_user.nickname == "Pokedex" %>
-    <%= cl_image_tag pokemon.photo.tag, class: "index-img", transformation: [
+    <%= cl_image_tag pokemon.photo.key, class: "index-img", transformation: [
               {height: 500, width: 500, crop: :fill}] %>
   <% else %>
   <%= cl_image_tag pokemon.photo.key, class: "index-img", transformation: [
