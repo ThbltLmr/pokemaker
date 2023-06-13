@@ -48,4 +48,15 @@ class Pokemon < ApplicationRecord
     }
     step_instructions[key.to_sym]
   end
+
+  def sentences
+    [
+      "#{name.capitalize}!!!",
+      "#{name.capitalize}#{name.last*3}",
+      "#{name.capitalize}?",
+      "#{name.capitalize}!",
+      "#{name.capitalize} #{name}",
+      "#{name.capitalize}..."
+    ]
+  end
 end

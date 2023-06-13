@@ -5,6 +5,7 @@
   height: 100vh;
   margin : 0;
   display: flex;
+  align-items: center;
 }
 
 .profile-container {
@@ -15,9 +16,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  top: 3%;
   background-color: rgba(255, 0, 0, 0.9);
-  left: 2%;
   border-radius: 27px;
   box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
   border: 2px solid #000000;
@@ -236,23 +235,23 @@
 
 // mediaqueries
 
-@media only screen and (max-width: 600px) {
-  .profile-container, .list-profile {
-    width: 90%;
-    left: 5%;
-  }
-}
+// @media only screen and (max-width: 600px) {
+//   .profile-container, .list-profile {
+//     width: 90%;
+//     left: 5%;
+//   }
+// }
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .profile-container, .list-profile {
-    width: 70%;
-    left: 15%;
-  }
-}
+// @media only screen and (min-width: 601px) and (max-width: 1024px) {
+//   .profile-container, .list-profile {
+//     width: 70%;
+//     left: 15%;
+//   }
+// }
 
-@media only screen and (min-width: 1367px) {
-  .profile-container, .list-profile {
-    width: 45%;
-    left: 27.5%;
-  }
-}
+// @media only screen and (min-width: 1367px) {
+//   .profile-container, .list-profile {
+//     width: 45%;
+//     left: 27.5%;
+//   }
+// }
