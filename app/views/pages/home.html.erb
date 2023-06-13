@@ -1,9 +1,3 @@
-
-
-<%# <%= render 'shared/pokemon_card' %>
-
-<%# <%= link_to "Pokemaker", pokemons_new_path %>
-<%# <%= link_to "Pokedex", pokemons_index_path %>
 <div data-controller="home-music" data-home-music-default-music-value="<%= asset_path('audio-ville.mp3') %>">
   <div class="position-relative" data-controller="home">
     <div class="d-flex flex-row vw-100 vh-100 bg-black position-absolute top-0 start-0" style="z-index: 10;" data-action="click->home#reveal click->home-music#playMusic" data-home-music-url-param="<%= asset_path('audio-ville.mp3') %>">
@@ -25,8 +19,6 @@
         <%= image_tag 'misty-pixel.png', class: 'img-sizing' %>
       </div>
     </div>
-    <%#= render 'shared/pokemon_card' %>
-
     <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0 map-background" style="z-index: 9;">
       <div id="pokelab" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
       <div id="pokedex" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
