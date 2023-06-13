@@ -2,7 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="autocomplete"
 export default class extends Controller {
-  static targets = ['search', 'list', 'attackOne', 'attackTwo', 'attackThree']
+  static targets = ['search', 'list']
+  static values = {
+    id: Number
+  }
 
   connect() {
     console.log("autocomplete")
@@ -21,16 +24,13 @@ export default class extends Controller {
 
   fill(event) {
     event.preventDefault()
-    const input = event.currentTarget.innerText
-    console.log(input)
-    console.log(this.attackOneTarget)
-    if (this.attackOneTarget.value === "") {
-      this.attackOneTarget.value = input
-    } else if (this.attackTwoTarget.value === "") {
-      this.attackTwoTarget.value = input
-    } else {
-      this.attackThreeTarget.value = input
-    }
+    console.log(event.currentTarget.firstChild)
+    const id = event.currentTarget.firstChild.id
+    console.log(id)
+    const select = this.element.querySelector("select")
+    select.querySelector(`option[value="${id}"]`).selected = "selected"
+    console.log(select)
+    console.log(select.querySelector(`option[value="${id}"]`))
     this.listTarget.innerHTML = ""
   }
 }

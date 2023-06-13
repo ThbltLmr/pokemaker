@@ -1,5 +1,5 @@
 <ul class= "list-group">
   <% attacks.each do |attack| %>
-    <a href="" data-action="click->autocomplete#fill" class="text-decoration-none"><li class="list-group-item"><%= attack.name %></li></a>
+    <a href="" data-action="click->autocomplete#fill" class="text-decoration-none"><li class="list-group-item" id="<%=attack.id%>"><%= attack.name %></li></a>
   <% end %>
 </ul>
