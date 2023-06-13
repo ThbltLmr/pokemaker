@@ -19,21 +19,14 @@
      <button type="button" class="btn btn-secondary" id="back">Back</button>
     <% end %>
  </nav>
- <div class="main-container">
- <div class="like-count">
-    <div class="heart-icon">
-        <p><i class="fa-solid fa-heart" style="color: #e70808;"></i> 0</p>
-    </div>
- </div>
+ <div class="main-container" data-controller="card">
   <div class="list">
     <% @pokemons.each_with_index do |pokemon, index| %>
       <% break if index >= 10 %>
-      <%= render 'shared/pokemon_bubble' %>
+      <%= render 'shared/pokemon_bubble', pokemon: pokemon %>
     <% end %>
   </div>
-  <div class="pokemon-card">
-    <%= render 'shared/pokemon_card', pokemon: Pokemon.last %>
-  </div>
-  <div class="avatar">
+  <div class="pokemon-card" data-card-target="location">
+    <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: false %>
   </div>
 </div>
