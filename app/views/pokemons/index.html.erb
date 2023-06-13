@@ -31,9 +31,8 @@
       <%= render 'shared/pokemon_bubble' %>
     <% end %>
   </div>
-    <% if true %>
-      <%= render 'shared/new_pokemon_card', pokemon: Pokemon.last %>
-    <% end %>
+  <div class="pokemon-card">
+    <%= render 'shared/pokemon_card', pokemon: Pokemon.last %>
   </div>
   <div class="avatar">
   </div>

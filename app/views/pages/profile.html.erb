@@ -1,3 +1,4 @@
+
 <div class= "home-profile">
   <div class="profile-container">
       <div class="decoration-buttons">
@@ -44,5 +45,8 @@
       <% break if index >= 8 %>
       <%= render "shared/pokemon_bubble" %>
     <% end %>
+  </div>
+  <div class="profile-card">
+    <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: false %>
   </div>
 </div>
