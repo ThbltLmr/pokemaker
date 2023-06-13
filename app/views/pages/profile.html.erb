@@ -7,7 +7,7 @@
     </div>
     <img class="avatar-profile" src=" ">
     <div class="profile-box">
-      <h1 class="title-name">Ash the trainer</h1>
+      <h1 class="title-name"><%= current_user.nickname %></h1>
     </div>
     <%= image_tag 'pikagif.gif', class: "gif-profile" %>
     <div class="line-style-2">
@@ -19,9 +19,10 @@
       </p>
     </div>
     <div class="profile-description">
-      <h1 class="text-describe">Pokemon Created: 180</h1>
-      <h1 class="text-describe">Total Votes: 0</h1>
-      <h1 class="text-describe">Average votes/Pokemons: 0</h1>
+      <% total_votes = current_user.pokemons.reduce(0) { |sum, pokemon| sum + pokemon.votes.count } %>
+      <h1 class="text-describe">Pokemon Created: <%= current_user.pokemons.count %></h1>
+      <h1 class="text-describe">Total Votes: <%= total_votes %></h1>
+      <h1 class="text-describe">Average votes/Pokemons: <%= total_votes.zero? ? "N/A" : (total_votes.to_f / (current_user.pokemons.count)).round(2) %></h1>
     </div>
     <div class="line-style-3">
       <p class="line-1">
@@ -44,7 +45,9 @@
       </div>
     <% end %>
   </div>
-  <%= render "pokemons/chat", pokemon: Pokemon.last %>
+  <div class="d-none">
+    <%= render "pokemons/chat", pokemon: Pokemon.last %>
+  </div>
   <div class="list-profile" data-card-target="location">
     <% @pokemons.order('created_at DESC').each_with_index do |pokemon, index| %>
       <% break if index >= 6 %>
