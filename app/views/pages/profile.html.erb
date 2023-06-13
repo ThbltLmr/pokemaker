@@ -1,9 +1,9 @@
 <div class="home-profile" data-controller="card">
   <div class="profile-container">
-    <div class="decoration-buttons">
-      <div class="decoration-button decoration-button-red"></div>
-      <div class="decoration-button decoration-button-green"></div>
-      <div class="decoration-button decoration-button-blue"></div>
+      <div class="decoration-buttons">
+        <div class="decoration-button decoration-button-red"></div>
+        <div class="decoration-button decoration-button-green"></div>
+        <div class="decoration-button decoration-button-blue"></div>
     </div>
     <img class="avatar-profile" src=" ">
     <div class="profile-box">
@@ -44,6 +44,7 @@
       </div>
     <% end %>
   </div>
+  <%= render "pokemons/chat", pokemon: Pokemon.last %>
   <div class="list-profile" data-card-target="location">
     <% @pokemons.order('created_at DESC').each_with_index do |pokemon, index| %>
       <% break if index >= 6 %>
