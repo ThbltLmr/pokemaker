@@ -7,8 +7,8 @@ export default class extends Controller {
 
   send(event) {
     const input = this.inputTarget.value;
-    this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="right">${input}</div>`);
-    // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="right"><span>${input}</span></div>`);
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
 
     event.preventDefault();
 
@@ -24,7 +24,7 @@ export default class extends Controller {
       this.hideTypingBubble();
       const randomIndex = Math.floor(Math.random() * this.sentencesValue.length);
       const response = this.sentencesValue[randomIndex]
-      this.messagesTarget.insertAdjacentHTML("beforeend", `<div>${response}</div>` )
+      this.messagesTarget.insertAdjacentHTML("beforeend", `<div class="left"><span>${response}</span></div>` )
     }, 3000);
   }
 

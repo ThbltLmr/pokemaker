@@ -15,9 +15,7 @@
       <%# badge with likes (in abs) %>
     </div>
   </div>
-  <div class="chat">
-    <%= render "pokemons/chat", pokemon: Pokemon.last %>
-  </div>
+  <%= render "pokemons/chat", pokemon: Pokemon.last %>
   <div class="pokemon_cards d-none">
     <% current_user.pokemons.first(6).each do |pokemon| %>
       <%= render "shared/pokemon_bubble" %>
