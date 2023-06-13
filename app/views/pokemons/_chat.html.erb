@@ -1,4 +1,9 @@
-<div class="chat-container" data-controller="message" data-message-sentences-value="<%= pokemon.sentences %>">
+<div class="chat-container flip-side flip-side_back" data-controller="message" data-message-sentences-value="<%= pokemon.sentences %>" data-profile-target="chat">
+  <div class="decoration-buttons">
+    <div class="decoration-button decoration-button-red"></div>
+    <div class="decoration-button decoration-button-green"></div>
+    <div class="decoration-button decoration-button-blue"></div>
+  </div>
   <div class="chat-info">
     <%= cl_image_tag pokemon.photo.key, :class => "avatar-custom-2" %>
     <h3><%= pokemon.name.capitalize %></h3>

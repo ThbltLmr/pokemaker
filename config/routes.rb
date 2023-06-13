@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/map_home', to: 'pages#map'
   get "/search_attacks", to: "attacks#search", as: :search_attacks
   get '/pokemons/:id/card', to: "pokemons#card", as: :card
+  get '/pokemons/:id/chat', to: "pokemons#chat", as: :chat
 end
