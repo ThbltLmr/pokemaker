@@ -1,7 +1,7 @@
   <div class="form-container">
   <div class="pokemon-questions">
     <%= f.input :step, label: false, input_html: { value: f.object.current_step, class: "d-none" } %>
-    <%= f.input :task_id, label: false, input_html: { class: "d-none" } %>
+    <%= f.input :task_id, label: false, input_html: { value: f.object.task_id ? f.object.task_id : "",class: "d-none" } %>
     <%= f.input :name, label: false, placeholder: "Enter a name", input_html: { class: "#{'d-none' if f.object.current_step != "name"}" } %>
 
     <%= f.association :types, checked: params.dig(:pokemon, :type_ids), wrapper_html: { class: "#{'d-none' if f.object.current_step != "types"} types-fieldset", "data-pokemon-target": "types" },

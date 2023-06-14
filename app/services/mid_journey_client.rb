@@ -24,7 +24,8 @@ class MidJourneyClient
 
       @pokemon.task_id = JSON.parse(imagine_response.body)["taskId"]
     else
-      @pokemon.task_id = "12826636998690399766219445354649"
+      @pokemon.task_id = rand(1..9999).to_s
+      # @pokemon.task_id = "12826636998690399766219445354649"
     end
   end
 end
