@@ -1,4 +1,4 @@
-<div class="card_pokemon <%= shine ? "shiny" : "" %>" <%= "data-controller=shiny" if !revealed %> data-action="click->shiny#turn mousemove->shiny#shine">
+<div class="card_pokemon <%= shine ? "shiny" : "" %>" <%= "data-controller=shiny" if !revealed %> data-action="click->shiny#turn mousemove->shiny#shine click->pokemon#reveal">
   <div class="card__wrapper">
     <div class="card__3d" data-shiny-target="movement">
       <div class="card__back <%= revealed ? "d-none" : "" %>" data-shiny-target="back">

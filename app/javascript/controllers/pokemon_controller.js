@@ -3,7 +3,7 @@ import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form', 'gif', 'chen']
+  static targets = ['step', 'types', 'form', 'gif', 'chen', "background"]
 
   connect() {
     // this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -43,6 +43,8 @@ export default class extends Controller {
         this.chenTarget.classList.remove("d-none")
         this.gifTarget.innerHTML = ""
         this.formTarget.innerHTML = data.html
+        this.formTarget.classList.add("background-black")
+        this.formTarget.classList.add("hundred")
         this.formTarget.insertAdjacentHTML("beforeend",
         "<div class='d-flex justify-content-center mt-2'><a href='/pokemons' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To Pokemon gallery</button></a><a href='/profile' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To your profile</button></a></div>"
         )
@@ -59,5 +61,24 @@ export default class extends Controller {
       event.currentTarget.checked = false
       window.alert("Pokemons can only have two types");
     }
+  }
+
+  reveal() {
+
+    // this.element.classList.remove("background-black")
+    let backgroundPosition = 0
+
+    this.interval = setInterval(() => {
+      if (backgroundPosition > 1700) {
+        clearInterval(this.interval)
+      }
+        console.log("You're in the interval", backgroundPosition)
+        backgroundPosition+=6;
+        this.formTarget.style.backgroundImage = `radial-gradient(${backgroundPosition}px ${backgroundPosition}px at 50% 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)`;
+    }, 5);
+  }
+
+  disconnect() {
+    clearInterval(this.interval)
   }
 }

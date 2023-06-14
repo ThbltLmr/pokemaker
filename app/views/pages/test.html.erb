@@ -1,7 +1,5 @@
 <div class="lab-container" data-controller="pokemon">
-  <div class="fade-animation">
-    <div class="">
-      <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: true, revealed: false %>
-    </div>
+  <div class="background-black hundred" data-pokemon-target="background">
+    <%= render 'shared/pokemon_card', pokemon: Pokemon.last, shine: true, revealed: false %>
   </div>
 </div>
