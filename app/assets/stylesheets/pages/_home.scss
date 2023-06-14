@@ -165,6 +165,10 @@ transform: translateY(500px);
   }
 }
 
+.rounded-circle {
+  cursor: pointer;
+}
+
 .fadeOut {
   animation-name: fadeOut;
   animation-duration: 5s;

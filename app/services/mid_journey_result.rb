@@ -22,7 +22,6 @@ class MidJourneyResult
     result_response = Faraday.post(result_url, result_body, headers)
     response_hash = JSON.parse(result_response.body)
     # response_hash = { "status" => "pending" } # uncomment to test loading screen
-
     if response_hash.key?("imageURL")
       image_url = response_hash["imageURL"]
       image = URI.open(image_url)
