@@ -5,7 +5,8 @@
     <div class="decoration-button decoration-button-blue"></div>
   </div>
   <div class="chat-info">
-    <%= cl_image_tag pokemon.photo.key, :class => "avatar-custom-2" %>
+    <%= cl_image_tag pokemon.photo.key, :class => "avatar-custom-2", transformation: [
+              {height: 1024, width: 1024, crop: :crop, x: 0, y:0}] %>
     <h3><%= pokemon.name.capitalize %></h3>
   </div>
   <div class="chat" >
