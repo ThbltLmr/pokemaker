@@ -22,7 +22,7 @@
 
     <%= f.input :attacks, input_html: { value: params.dig(:pokemon, :attack_ids)&.reject(&:blank?) }, wrapper_html: { class: "d-none" } %>
 
-    <%= f.input :bio, label: false, input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
+    <%= f.input :bio, label: false, placeholder: "Enter a description..", input_html: { class: "#{'d-none' if f.object.current_step != "bio"}" } %>
     <%= f.error :base, class: "text-danger" %>
   </div>
   <div class="pokemon-submit mb-2">
