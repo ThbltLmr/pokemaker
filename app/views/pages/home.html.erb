@@ -21,10 +21,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0 map-background" style="z-index: 9;">
       <div id="pokelab" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
       <div id="pokedex" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
@@ -32,12 +28,12 @@
       <div id="map-pokeworld" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
       <div class="pokemaker-logo"><%= image_tag 'pokemaker_logo.gif', size: 300 %></div>
       <div class="d-flex flex-row justify-content-center align-items-center chen-avatar">
-        <h1>Chen's Lab</h1>
+        <h1 class="chen-lab">Chen's Lab</h1>
         <%= image_tag 'chen-avatar5.gif', size: 50, class: "rounded-circle" %>
       </div>
       <div class="d-flex flex-row justify-content-center align-items-center map-redirection">
         <%= image_tag 'map-pokeworld.png', size: 70, class: "rounded-circle" %>
-        <h1>Map World</h1>
+        <h1 class="map-world">Map World</h1>
       </div>
       <%= image_tag 'pokedex_preview_rev_1.png', size: 400, class: "pokedex-home" %>
       <div class="player player-back" data-home-map-target="player"></div>
