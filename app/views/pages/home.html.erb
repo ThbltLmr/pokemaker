@@ -1,39 +1,45 @@
-<div data-controller="home-music" data-home-music-default-music-value="<%= asset_path('audio-ville.mp3') %>">
+  <div data-controller="home-music" data-home-music-default-music-value="<%= asset_path('audio-ville.mp3') %>">
   <div class="position-relative" data-controller="home">
     <div class="d-flex flex-row vw-100 vh-100 bg-black position-absolute top-0 start-0" style="z-index: 10;" data-action="click->home#reveal click->home-music#playMusic" data-home-music-url-param="<%= asset_path('audio-ville.mp3') %>">
       <div class="w-30 bg-black curtain-right">
-        <%= image_tag 'red-pixel.png', class: 'img-sizing' %>
+        <div class="d-flex flex-column p-5 m-5 gap-5">
+          <%= image_tag 'red-pixel.png', class: 'img-sizing' %>
+          <%= image_tag 'gengar.gif', class: 'img-sizing' %>
+        </div>
       </div>
       <div class="w-40 bg-black d-flex flex-column">
-        <div class="d-flex flex-column h-60 d-inline-block bg-black align-items-center justify-content-center">
+        <div class="d-flex flex-column h-100 d-inline-block bg-black align-items-center justify-content-center">
           <div class= "title-top"><%= image_tag 'title-top.png' %></div>
           <div><%= image_tag 'background-idée6.jpg', size: 200, class: "rounded-circle" %></div>
           <div class= "title-bot"><%= image_tag 'bot-title.png' %></div>
         </div>
-        <div class= "d-flex flex-row h-40 gap-3 p-5 bg-black curtain-bot">
-        <%= image_tag 'gengar.gif', class: 'img-sizing' %>
+      </div>
+      <div class="w-30 curtain-left">
+        <div class="d-flex flex-column p-5 m-4">
+        <%= image_tag 'misty-pixel.png', class: 'img-sizing' %>
         <%= image_tag 'charizard.gif', class: 'img-sizing' %>
         </div>
       </div>
-      <div class="w-30 curtain-left">
-        <%= image_tag 'misty-pixel.png', class: 'img-sizing' %>
-      </div>
     </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     <div data-controller="home-map" id="home-map" class="position-absolute top-0 start-0 map-background" style="z-index: 9;">
       <div id="pokelab" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
       <div id="pokedex" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
       <div id="home-profil" data-home-map-target="item" data-url="/profile" data-intersected="false"></div>
       <div id="map-pokeworld" data-home-map-target="item" data-url="/pokemons/new" data-intersected="false"></div>
-      <div class="pokemaker-logo"><%= image_tag 'pokemaker_logo.gif'%></div>
-      <div class="d-flex flex-row chen-avatar">
+      <div class="pokemaker-logo"><%= image_tag 'pokemaker_logo.gif', size: 300 %></div>
+      <div class="d-flex flex-row justify-content-center align-items-center chen-avatar">
         <h1>Chen's Lab</h1>
-        <%= image_tag 'chen-avatar5.gif', size: 80, class: "rounded-circle" %>
+        <%= image_tag 'chen-avatar5.gif', size: 50, class: "rounded-circle" %>
       </div>
-      <div class="d-flex flex-row justify-content-center map-redirection">
-        <%= image_tag 'map-pokeworld.png', size: 100, class: "rounded-circle" %>
-        <h1>MAP</h1>
+      <div class="d-flex flex-row justify-content-center align-items-center map-redirection">
+        <%= image_tag 'map-pokeworld.png', size: 70, class: "rounded-circle" %>
+        <h1>Map World</h1>
       </div>
-      <%= image_tag 'pokedex_preview_rev_1.png', size: 500, class: "pokedex-home" %>
+      <%= image_tag 'pokedex_preview_rev_1.png', size: 400, class: "pokedex-home" %>
       <div class="player player-back" data-home-map-target="player"></div>
     </div>
   </div>
