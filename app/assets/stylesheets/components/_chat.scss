@@ -1,9 +1,10 @@
 .chat-container {
-  width: 45%;
-  height: 95%;
-  border: solid grey;
-  border-radius: 8px;
+  height: 95vh;
+  border: solid 2px black;
   background-color: red;
+  border-radius: 25px;
+  box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
+
 }
 
 .chat-info {
@@ -13,10 +14,15 @@
   padding: 2rem;
   margin: 1rem;
   height: 20%;
+  margin-right: 2rem;
+
+  h3 {
+    margin-right: 3rem;
+    margin-top: 3rem;
+  }
 }
 
 .chat {
-  // position: relative;
   padding: 1rem;
   border: solid grey;
   display: flex;

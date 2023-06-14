@@ -3,24 +3,36 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  margin : 0;
+  margin: 0;
+  padding: 1rem;
   display: flex;
   align-items: center;
 }
 
 .profile-container {
-  position: relative;
-  width: 45%;
-  height: 95%;
-  display: flex;
-  flex-wrap: wrap;
+  // position: relative;
+  // flex-wrap: wrap;
+  // width: 45%;
+  height: 95vh;
+  // display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 0, 0, 0.9);
-  border-radius: 27px;
+  border-radius: 25px;
   box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
   border: 2px solid #000000;
-  transition: transform 0.3s ease-in-out;
+  padding: 1rem;
+  // transition: transform 0.3s ease-in-out;
+}
+
+.player-info {
+  display: flex;
+  border-bottom: solid black;
+  padding-bottom: 2rem;
+  padding: 1rem;
+  padding-right: 2rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .profile-container:hover {
@@ -115,22 +127,22 @@
 
 
 .avatar-profile {
-  position: absolute;
-  top: 2%;
-  left: 10%;
-  width: 33%;
-  height: 28%;
+  // position: absolute;
+  // top: 2%;
+  // left: 10%;
+  width: 120px;
+  height: 120px;
   background-image: url(ashbl.png);
   background-color: white;
   background-size: cover;
   border: 4px solid #000000;
-  border-radius: 177px;
+  border-radius: 50%;
 }
 
 .profile-box {
-  position: absolute;
-  top: 22%;
-  left: 44%;
+  // position: absolute;
+  // top: 22%;
+  // left: 44%;
 }
 
 .title-name {
@@ -142,9 +154,10 @@
 .profile-description {
   font-size: 30px;
   line-height: 47px;
-  margin-top: 10px;
+  padding: 2rem;
   font-weight: 700;
   letter-spacing: 0.05em;
+  border-bottom: solid black;
 }
 
 .text-describe {
@@ -156,25 +169,24 @@
 }
 
 .bottom-right-image {
-  position: absolute;
-  bottom: 13%;
-  right: 5%;
   width: 125px;
   height: 125px;
   background-image: url(Badge1.png);
 }
 
 .fav-pokemon-profile {
-  position: absolute;
-  bottom: 5%;
-  left: 27%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-profile {
-  position: absolute;
-  top: 70%;
-  left: 29%;
   line-height: 47px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  padding-bottom: 0;
 }
 
 .footer-describe {
@@ -229,7 +241,7 @@
 
 .gif-profile {
   position: absolute;
-  top: 19%;
+  top: 16%;
   right: 5%;
 }
 

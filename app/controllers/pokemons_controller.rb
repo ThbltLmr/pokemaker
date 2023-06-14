@@ -14,6 +14,11 @@ class PokemonsController < ApplicationController
     render json: { html: render_card(@pokemon) }
   end
 
+  def chat
+    @pokemon = Pokemon.find(params[:id])
+    render json: { html: render_chat(@pokemon) }
+  end
+
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user = current_user
@@ -52,6 +57,10 @@ class PokemonsController < ApplicationController
 
   def render_card(pokemon)
     render_to_string(partial: "shared/pokemon_card", locals: { pokemon: pokemon, shine: false, revealed: true }, formats: [:html])
+  end
+
+  def render_chat(pokemon)
+    render_to_string(partial: "pokemons/chat", locals: { pokemon: pokemon }, formats: [:html])
   end
 
   def loading
