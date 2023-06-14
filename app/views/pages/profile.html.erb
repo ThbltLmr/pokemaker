@@ -10,15 +10,16 @@
         <div class="profile-box">
           <div class="player-info">
             <img class="avatar-profile" src=" ">
-            <h1 class="title-name">Ash the trainer</h1>
+            <h1 class="title-name"><%= current_user.nickname %></h1>
           </div>
           <%= image_tag 'pikagif.gif', class: "gif-profile" %>
         </div>
 
         <div class="profile-description">
-          <h1 class="text-describe">Pokemon Created: 180</h1>
-          <h1 class="text-describe">Total Votes: 0</h1>
-          <h1 class="text-describe">Average votes/Pokemons: 0</h1>
+          <% total_votes = current_user.pokemons.reduce(0) { |sum, pokemon| sum + pokemon.votes.count } %>
+          <h1 class="text-describe">Pokemon Created: <%= current_user.pokemons.count %></h1>
+          <h1 class="text-describe">Total Votes: <%= total_votes %></h1>
+          <h1 class="text-describe">Average votes/Pokemons: <%= total_votes.zero? ? "N/A" : (total_votes.to_f / (current_user.pokemons.count)).round(2) %></h1>
         </div>
         <div class="footer-profile">
           <h1 class="footer-describe">Best Pokemon</h1>
