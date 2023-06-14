@@ -7,38 +7,25 @@
           <div class="decoration-button decoration-button-green"></div>
           <div class="decoration-button decoration-button-blue"></div>
         </div>
-        <img class="avatar-profile" src=" ">
         <div class="profile-box">
-          <h1 class="title-name">Ash the trainer</h1>
+          <div class="player-info">
+            <img class="avatar-profile" src=" ">
+            <h1 class="title-name">Ash the trainer</h1>
+          </div>
+          <%= image_tag 'pikagif.gif', class: "gif-profile" %>
         </div>
-        <%= image_tag 'pikagif.gif', class: "gif-profile" %>
-        <div class="line-style-2">
-          <p class="line-2">
-            <strong>
-              ----------------------------------------------------------
-              -----------------------------------------------------------
-            </strong>
-          </p>
-        </div>
+
         <div class="profile-description">
           <h1 class="text-describe">Pokemon Created: 180</h1>
           <h1 class="text-describe">Total Votes: 0</h1>
           <h1 class="text-describe">Average votes/Pokemons: 0</h1>
         </div>
-        <div class="line-style-3">
-          <p class="line-1">
-            <strong>
-              ----------------------------------------------------------
-              -----------------------------------------------------------
-            </strong>
-          </p>
-        </div>
         <div class="footer-profile">
           <h1 class="footer-describe">Best Pokemon</h1>
+          <div class="bottom-right-image"></div>
         </div>
-        <div class="bottom-right-image"></div>
         <div class="fav-pokemon-profile">
-            <%= render "shared/pokemon_bubble", pokemon: @pokemons.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC').limit(10).first %>
+          <%= render "shared/pokemon_bubble", pokemon: @pokemons.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC').limit(10).first %>
         </div>
         <%= link_to root_path do %>
           <div class="return-profile">
