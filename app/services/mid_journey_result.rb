@@ -19,17 +19,11 @@ class MidJourneyResult
       "taskId": @pokemon.task_id
     }.to_json
 
-    # result_response = Faraday.post(result_url, result_body, headers)
-    # response_hash = JSON.parse(result_response.body)
-    response_hash = { "status" => "midjourney-bad-request-other" }
-    debugger
-    if (response_hash.key?("status") && response_hash["status"] == "midjourney-bad-request-other")
-      debugger
-      sleep(5)
-      MidJourneyClient.new(@pokemon).call(false)
-      MidJourneyResult.new(@pokemon).call
-      debugger
-    elsif response_hash.key?("imageURL")
+    result_response = Faraday.post(result_url, result_body, headers)
+    response_hash = JSON.parse(result_response.body)
+    # response_hash = { "status" => "pending" } # uncomment to test loading screen
+
+    if response_hash.key?("imageURL")
       image_url = response_hash["imageURL"]
       image = URI.open(image_url)
       @pokemon.photo.attach(io: image, filename: "pokemon.png", content_type: "image/png")
