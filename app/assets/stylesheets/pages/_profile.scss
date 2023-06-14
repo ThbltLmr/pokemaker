@@ -185,6 +185,10 @@
   letter-spacing: 0.05em;
 }
 
+a, button, input[type=submit] {
+  cursor: pointer;
+}
+
 .list-profile {
   background: rgba(217, 217, 217, 0.6);
   position: absolute;
