@@ -68,8 +68,8 @@ export default class extends Controller {
       this.movementTarget.classList.remove("smooth")
     }, 1000);
 
-    setTimeout(() => {
-      this.buttonsTarget.classList.remove("d-none")
-    }, 2000);
+    // setTimeout(() => {
+    //   this.buttonsTarget.classList.remove("d-none")
+    // }, 2000);
   }
 }
