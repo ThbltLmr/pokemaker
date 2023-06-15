@@ -7,6 +7,14 @@ class PokemonsController < ApplicationController
 
   def index
     @pokemons = Pokemon.includes(:votes).all.sort_by(&:created_at).reverse
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          html: render_to_string(partial: "pokemons/six_pokemons", locals: { pokemons: @pokemons }, formats: [:html])
+        }
+      }
+    end
   end
 
   def card

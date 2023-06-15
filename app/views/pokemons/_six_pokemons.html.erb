@@ -1,0 +1,4 @@
+  <% pokemons.sort{ |a, b| b.created_at <=> a.created_at }.each_with_index do |pokemon, index| %>
+    <% break if index >= 6 %>
+    <%= render "shared/pokemon_bubble", pokemon: pokemon %>
+  <% end %>
