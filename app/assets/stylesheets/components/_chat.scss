@@ -35,7 +35,13 @@
 }
 
 .messages {
-  height: 80%;
+  height: 92%;
+  overflow: scroll;
+  padding: 4px 6px 0px 5px;
+}
+
+.messages::-webkit-scrollbar {
+  display: none;
 }
 
 .send {
