@@ -26,7 +26,7 @@ export default class extends Controller {
 
     if (this.element.classList.contains("home-profile")) {
       this.locationTarget.classList.add("flex-column")
-      this.locationTarget.insertAdjacentHTML("beforeend", "<div class='d-flex flex-column justify-content-end gat-1 mt-2'><button class='btn-pixel' data-action='click->profile#reset'>Back</button></div>")
+      this.locationTarget.insertAdjacentHTML("beforeend", "<div class='d-flex justify-content-center mt-2'><button class='btn-pixel' data-action='click->profile#reset'>Back</button></div>")
     }
   }
 }
