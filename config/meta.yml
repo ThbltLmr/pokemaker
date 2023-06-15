@@ -1,5 +1,5 @@
 meta_name: "Pokemaker"
 meta_title: "Pokemaker - create your own Pokemons"
 meta_description: "AI-powered Pokemon creator"
-meta_image: "logo_pokemaker.png" # should exist in `app/assets/images/`
+meta_image: "logo_og_image.png" # should exist in `app/assets/images/`
 # twitter_account: "@el"
