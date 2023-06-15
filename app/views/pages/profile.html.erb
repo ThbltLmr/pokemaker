@@ -26,7 +26,6 @@
           <div class="bottom-right-image"></div>
         </div>
         <div class="fav-pokemon-profile">
-          <%  %>
           <%= render "shared/pokemon_bubble", pokemon: @pokemons.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC').limit(10).first %>
         </div>
         <%= link_to root_path do %>
@@ -38,10 +37,7 @@
       <%= render "pokemons/chat", pokemon: Pokemon.last %>
     </div>
   </div>
-  <div class="list-profile" data-card-target="location">
-    <% @pokemons.order('created_at DESC').each_with_index do |pokemon, index| %>
-      <% break if index >= 6 %>
-      <%= render "shared/pokemon_bubble", pokemon: pokemon %>
-    <% end %>
+  <div class="list-profile" data-card-target="location" data-profile-target="index">
+    <%= render "pokemons/six_pokemons", pokemons: @pokemons %>
   </div>
 </div>
