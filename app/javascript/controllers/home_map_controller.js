@@ -93,7 +93,7 @@ export default class extends Controller {
         }
         player.classList.add('active')
         if(e.key == "a") {
-          window.location = 'http://www.pokemon.com'
+          window.location = '/pokemons/new'
         }
 
     })

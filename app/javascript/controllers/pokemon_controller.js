@@ -3,7 +3,7 @@ import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form', 'gif', 'chen', "background"]
+  static targets = ['step', 'types', 'form', 'gif', 'chen', 'buttons', 'background']
 
   connect() {
     // this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -45,9 +45,7 @@ export default class extends Controller {
         this.formTarget.innerHTML = data.html
         this.formTarget.classList.add("background-black")
         this.formTarget.classList.add("hundred")
-        this.formTarget.insertAdjacentHTML("beforeend",
-        "<div class='d-flex justify-content-center mt-2'><a href='/pokemons' class='text-decoration-none mt-2 mx-2'><button class='btn-pixel'>To Gallery</button></a><a href='/profile' class='text-decoration-none mt-2 mx-2'><button class='btn-pixel'>To your profile</button></a></div>"
-        )
+        this.buttonsTarget.classList.remove("d-none")
       }
     } else {
       this.stepTarget.innerHTML = data.html
