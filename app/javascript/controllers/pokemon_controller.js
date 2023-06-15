@@ -29,7 +29,7 @@ export default class extends Controller {
     const data = await response.json()
     if (document.getElementById("pokemon_step").value === 'bio') {
       this.chenTarget.classList.remove("container-shen")
-      this.chenTarget.classList.add("container-reveal")
+      // this.chenTarget.classList.add("container-reveal")
       if (data.html.includes("loading")) {
         this.chenTarget.classList.add("d-none")
         this.gifTarget.classList.remove("d-none")
