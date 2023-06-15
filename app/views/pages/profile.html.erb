@@ -37,6 +37,9 @@
       <%= render "pokemons/chat", pokemon: Pokemon.last %>
     </div>
   </div>
+  <div class='d-none back-button' data-card-target="backbutton" data-profile-target="backbutton" >
+    <button class='btn-pixel' data-action='click->profile#reset'>Back</button>
+  </div>
   <div class="list-profile" data-card-target="location" data-profile-target="index">
     <%= render "pokemons/six_pokemons", pokemons: @pokemons %>
   </div>

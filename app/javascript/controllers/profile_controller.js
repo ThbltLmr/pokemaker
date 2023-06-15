@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="profile"
 export default class extends Controller {
-  static targets = ["chat", "profile", "flip", "index"]
+  static targets = ["chat", "profile", "flip", "index", "backbutton"]
 
   connect() {
     // this.chatTarget.style.setProperty("--r-x", -180 + "deg");
@@ -44,6 +44,8 @@ export default class extends Controller {
     const response = await fetch(`/pokemons`, options)
     const data = await response.json()
     this.indexTarget.classList.remove("flex-column")
+    this.backbuttonTarget.classList.add("d-none")
     this.indexTarget.innerHTML = data.html
+
   }
 }

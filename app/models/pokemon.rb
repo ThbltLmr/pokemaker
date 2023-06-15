@@ -12,7 +12,7 @@ class Pokemon < ApplicationRecord
   STEPS = [:name, :types, :prompt, :attacks, :bio]
 
   with_options if: -> { step == "name" } do
-    validates :name, presence: true, length: { minimum: 2, maximum: 12 }
+    validates :name, presence: true, length: { minimum: 2, maximum: 10 }
   end
 
   with_options if: -> { step == "prompt" } do

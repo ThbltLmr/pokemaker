@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="card"
 export default class extends Controller {
-  static targets = ['location']
+  static targets = ['location', 'backbutton']
 
   connect() {
     console.log("card control")
@@ -26,7 +26,8 @@ export default class extends Controller {
 
     if (this.element.classList.contains("home-profile")) {
       this.locationTarget.classList.add("flex-column")
-      this.locationTarget.insertAdjacentHTML("beforeend", "<div class='d-flex justify-content-center mt-2'><button class='btn-pixel' data-action='click->profile#reset'>Back</button></div>")
+      console.log("debug")
+      this.backbuttonTarget.classList.remove("d-none")
     }
   }
 }
