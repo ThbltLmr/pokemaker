@@ -26,6 +26,7 @@
           <div class="bottom-right-image"></div>
         </div>
         <div class="fav-pokemon-profile">
+          <%  %>
           <%= render "shared/pokemon_bubble", pokemon: @pokemons.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC').limit(10).first %>
         </div>
         <%= link_to root_path do %>

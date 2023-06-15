@@ -47,11 +47,16 @@
   }
 }
 
+.attacks-text {
+  font-weight: 600;
+}
+
 .card__back {
   background-image: image-url("pokemon_card_back.png");
   background-size: cover;
   border-radius: 17px;
   height: 100%;
+  cursor: pointer;
 }
 
 .card__wrapper {

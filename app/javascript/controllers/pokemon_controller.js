@@ -46,7 +46,7 @@ export default class extends Controller {
         this.formTarget.classList.add("background-black")
         this.formTarget.classList.add("hundred")
         this.formTarget.insertAdjacentHTML("beforeend",
-        "<div class='d-flex justify-content-center mt-2'><a href='/pokemons' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To Pokemon gallery</button></a><a href='/profile' class='text-decoration-none mt-2 mx-2'><button class='btn btn-primary text-white mt-2'>To your profile</button></a></div>"
+        "<div class='d-flex justify-content-center mt-2'><a href='/pokemons' class='text-decoration-none mt-2 mx-2'><button class='btn-pixel'>To Gallery</button></a><a href='/profile' class='text-decoration-none mt-2 mx-2'><button class='btn-pixel'>To your profile</button></a></div>"
         )
       }
     } else {

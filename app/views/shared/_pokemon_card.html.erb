@@ -6,7 +6,7 @@
       <div class="card__front <%= revealed ? "" : "d-none" %> p-2" data-controller="background"  data-background-type-value="<%= pokemon.types.first.name %>" data-shiny-target="front">
         <div class="h-100 rounded" data-background-target="card">
           <div class="d-flex justify-content-between align-items-center p-2">
-            <h3> <%= pokemon.name.capitalize %> </h3>
+            <h3 class="attacks-text"> <%= pokemon.name.capitalize %> </h3>
             <div class="d-flex justify-content-between align-items-center gap-3">
               <h3>HP 120</h3>
               <div class="d-flex justify-content-between gap-1 ">
@@ -28,7 +28,7 @@
               <% end %>
             </div>
             <div class="py-2 h-40">
-              <p> <%= pokemon.bio %> </p>
+              <p class="attacks-text"> <%= pokemon.bio %> </p>
             </div>
           </div>
         </div>
