@@ -7,12 +7,13 @@
   padding: 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .profile-container {
   // position: relative;
   // flex-wrap: wrap;
-  // width: 45%;
+  width: 40vw;
   height: 95vh;
   // display: flex;
   justify-content: center;
@@ -69,7 +70,7 @@
 }
 
 .decoration-button-red {
-  background-color: red;
+  background-color: rgb(255, 97, 97);
 }
 
 .decoration-button-red:hover {

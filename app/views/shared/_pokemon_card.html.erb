@@ -1,4 +1,4 @@
-<div class="card_pokemon <%= shine ? "shiny" : "" %>" <%= "data-controller=shiny" if !revealed %> data-action="click->shiny#turn mousemove->shiny#shine">
+<div class="card_pokemon <%= shine ? "shiny" : "" %>" <%= "data-controller=shiny" if !revealed %> data-action="click->shiny#turn mousemove->shiny#shine click->pokemon#reveal">
   <div class="card__wrapper">
     <div class="card__3d" data-shiny-target="movement">
       <div class="card__back <%= revealed ? "d-none" : "" %>" data-shiny-target="back">
@@ -8,7 +8,7 @@
           <div class="d-flex justify-content-between align-items-center p-2">
             <h3 class="attacks-text"> <%= pokemon.name.capitalize %> </h3>
             <div class="d-flex justify-content-between align-items-center gap-3">
-              <h3>HP 120</h3>
+              <h4>HP 120</h4>
               <div class="d-flex justify-content-between gap-1 ">
                 <% pokemon.types.each do |type| %>
                   <%= image_tag "#{type.name}.png", :class => "photo-energy" %>
@@ -23,12 +23,12 @@
             <div class="attacks pb-3 border-bottom h-60">
               <% pokemon.attacks.each do |attack| %>
                 <div class="attacks-text">
-                  <p><%= attack.name.capitalize %>: <%= attack.description %></p>
+                  <p><strong><%= attack.name.capitalize %>:</strong> <%= attack.description %></p>
                 </div>
               <% end %>
             </div>
             <div class="py-2 h-40">
-              <p class="attacks-text"> <%= pokemon.bio %> </p>
+              <p class="attacks-text"><%= pokemon.bio %></p>
             </div>
           </div>
         </div>
