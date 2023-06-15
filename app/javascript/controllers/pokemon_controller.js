@@ -3,7 +3,7 @@ import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form', 'gif', 'chen', 'buttons', 'background']
+  static targets = ['step', 'types', 'form', 'gif', 'chen', 'background']
 
   connect() {
     // this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -45,7 +45,6 @@ export default class extends Controller {
         this.formTarget.innerHTML = data.html
         this.formTarget.classList.add("background-black")
         this.formTarget.classList.add("hundred")
-        this.buttonsTarget.classList.remove("d-none")
       }
     } else {
       this.stepTarget.innerHTML = data.html

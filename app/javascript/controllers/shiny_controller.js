@@ -67,5 +67,9 @@ export default class extends Controller {
       this.stop = false
       this.movementTarget.classList.remove("smooth")
     }, 1000);
+
+    setTimeout(() => {
+      document.getElementById("cavaapparaitre").classList.remove("d-none")
+    }, 2000);
   }
 }
