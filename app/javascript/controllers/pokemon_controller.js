@@ -3,7 +3,7 @@ import Typed from "typed.js";
 
 // Connects to data-controller="pokemon"
 export default class extends Controller {
-  static targets = ['step', 'types', 'form', 'gif', 'chen', 'buttons']
+  static targets = ['step', 'types', 'form', 'gif', 'chen', 'buttons', 'background']
 
   connect() {
     // this.element.querySelectorAll("select").forEach((dropdown) => {
@@ -29,7 +29,7 @@ export default class extends Controller {
     const data = await response.json()
     if (document.getElementById("pokemon_step").value === 'bio') {
       this.chenTarget.classList.remove("container-shen")
-      this.chenTarget.classList.add("container-reveal")
+      // this.chenTarget.classList.add("container-reveal")
       if (data.html.includes("loading")) {
         this.chenTarget.classList.add("d-none")
         this.gifTarget.classList.remove("d-none")
@@ -43,6 +43,8 @@ export default class extends Controller {
         this.chenTarget.classList.remove("d-none")
         this.gifTarget.innerHTML = ""
         this.formTarget.innerHTML = data.html
+        this.formTarget.classList.add("background-black")
+        this.formTarget.classList.add("hundred")
         this.buttonsTarget.classList.remove("d-none")
       }
     } else {
@@ -57,5 +59,24 @@ export default class extends Controller {
       event.currentTarget.checked = false
       window.alert("Pokemons can only have two types");
     }
+  }
+
+  reveal() {
+
+    // this.element.classList.remove("background-black")
+    let backgroundPosition = 0
+
+    this.interval = setInterval(() => {
+      if (backgroundPosition > 1700) {
+        clearInterval(this.interval)
+      }
+        console.log("You're in the interval", backgroundPosition)
+        backgroundPosition+=6;
+        this.formTarget.style.backgroundImage = `radial-gradient(${backgroundPosition}px ${backgroundPosition}px at 50% 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)`;
+    }, 5);
+  }
+
+  disconnect() {
+    clearInterval(this.interval)
   }
 }

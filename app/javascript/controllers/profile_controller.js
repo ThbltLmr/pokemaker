@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="profile"
 export default class extends Controller {
-  static targets = ["chat", "profile", "flip"]
+  static targets = ["chat", "profile", "flip", "index"]
 
   connect() {
     // this.chatTarget.style.setProperty("--r-x", -180 + "deg");
@@ -35,7 +35,15 @@ export default class extends Controller {
     }, 250);
   }
 
-  reset() {
+  async reset() {
     this.turn()
+    const options = {
+      method: 'GET',
+      headers: {"Accept": "application/json"}
+    }
+    const response = await fetch(`/pokemons`, options)
+    const data = await response.json()
+    this.indexTarget.classList.remove("flex-column")
+    this.indexTarget.innerHTML = data.html
   }
 }

@@ -10,4 +10,7 @@ class PagesController < ApplicationController
   def profile
     @pokemons = Pokemon.where(user: current_user)
   end
+
+  def test
+  end
 end
