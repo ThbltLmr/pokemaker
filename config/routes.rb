@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/search_attacks", to: "attacks#search", as: :search_attacks
   get '/pokemons/:id/card', to: "pokemons#card", as: :card
   get '/pokemons/:id/chat', to: "pokemons#chat", as: :chat
+  get '/test', to: "pages#test"
 end
