@@ -11,7 +11,7 @@ class PokemonsController < ApplicationController
       format.html
       format.json {
         render json: {
-          html: render_to_string(partial: "pokemons/six_pokemons", locals: { pokemons: @pokemons }, formats: [:html])
+          html: render_to_string(partial: "pokemons/six_pokemons", locals: { pokemons: Pokemon.includes(:votes).where(user: current_user).sort_by(&:created_at).reverse }, formats: [:html])
         }
       }
     end
