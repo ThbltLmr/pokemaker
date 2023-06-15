@@ -17,6 +17,8 @@
       <input type="text" class="form-control" placeholder="Find a move" name="search" id="search" data-autocomplete-target="search" data-action="input->autocomplete#autocomplete">
       <div data-autocomplete-target="list" class="menu-item mb-2">
       </div>
+      <div class="d-flex flex-wrap" data-autocomplete-target="attacks">
+      </div>
       <%= f.association :attacks, checked: "#{params.dig(:pokemon, :attack_ids)&.reject(&:blank?)}", wrapper_html: { class: "d-none" } %>
     </div>
 

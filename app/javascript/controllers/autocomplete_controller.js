@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="autocomplete"
 export default class extends Controller {
-  static targets = ['search', 'list']
+  static targets = ['search', 'list', 'attacks']
   static values = {
     id: Number
   }
@@ -23,8 +23,8 @@ export default class extends Controller {
   }
 
   addAttack(attack, id) {
-    this.element.insertAdjacentHTML("beforeend",
-    `<div class='attack-tag d-flex'><p>${attack}</p><button data-action='click->autocomplete#remove' id=${id}><i class="fa-solid fa-xmark"></i></button>`
+    this.attacksTarget.insertAdjacentHTML("beforeend",
+    `<div class='attack-tag d-flex me-2'><p>${attack}</p><button data-action='click->autocomplete#remove' id=${id}><i class="fa-solid fa-xmark"></i></button>`
     )
   }
 
