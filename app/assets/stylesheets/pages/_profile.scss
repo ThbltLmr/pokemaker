@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   height: 100vh;
   margin: 0;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   // position: relative;
   // flex-wrap: wrap;
   width: 40vw;
-  height: 95vh;
+  height: 90vh;
   // display: flex;
   justify-content: center;
   align-items: center;
@@ -29,9 +29,8 @@
 .player-info {
   display: flex;
   border-bottom: solid black;
-  padding-bottom: 2rem;
-  padding: 1rem;
-  padding-right: 2rem;
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -40,19 +39,19 @@
   transform: scale(1.02);
 }
 
-.line-1 {
-  position: absolute;
-  left: 12%;
-  bottom: 31%;
-  letter-spacing: -5px;
-}
+// .line-1 {
+//   position: absolute;
+//   left: 12%;
+//   bottom: 31%;
+//   letter-spacing: -5px;
+// }
 
-.line-2 {
-  position: absolute;
-  left: 12%;
-  bottom: 65%;
-  letter-spacing: -5px;
-}
+// .line-2 {
+//   position: absolute;
+//   left: 12%;
+//   bottom: 65%;
+//   letter-spacing: -5px;
+// }
 
 .decoration-buttons {
   position: absolute;
@@ -156,44 +155,49 @@
 .profile-description {
   font-size: 30px;
   line-height: 47px;
-  padding: 2rem;
+  padding-inline: 1rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   border-bottom: solid black;
 }
 
 .text-describe {
-  font-size: 18px;
+  font-size: 11px;
   line-height: 47px;
-  margin-top: 10px;
+  margin-top: 4px;
   font-weight: 700;
   letter-spacing: 0.05em;
   font-family: 'Press Start 2P', cursive;
 }
 
 .bottom-right-image {
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   background-image: url(Badge1.png);
+  background-size: contain;
 }
 
 .fav-pokemon-profile {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .footer-profile {
   line-height: 47px;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  align-items: center;
+  padding-inline: 1rem;
+  // align-items: center;
   padding-bottom: 0;
 }
 
 .footer-describe {
-  font-size: 19px;
+  font-size: 15px;
   line-height: 47px;
   margin-top: 10px;
   font-weight: 700;
@@ -205,11 +209,21 @@ a, button, input[type=submit] {
   cursor: pointer;
 }
 
+.back-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  position: absolute;
+  top: 70%;
+  right: 41%;
+  z-index: 10;
+}
+
 .list-profile {
-  background: rgba(217, 217, 217, 0.6);
+  // background: rgba(217, 217, 217, 0.6);
   position: absolute;
   width: 50%;
-  height: 95%;
+  height: 90vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -217,8 +231,8 @@ a, button, input[type=submit] {
   top: 3%;
   left: 48%;
   border-radius: 27px;
-  box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
-  border: 2px solid #000000;
+  // box-shadow: 2px 3px 0px 1px rgba(0, 0, 0, 0.4);
+  // border: 2px solid #000000;
   gap: 10px;
 }
 
