@@ -88,7 +88,7 @@ class PokemonsController < ApplicationController
   def create_types(pokemon, types)
     types[1..].each { |t| PokemonType.create(pokemon: pokemon, type_id: t.to_i) }
   end
-
+  # comment
   def create_attacks(pokemon, attacks)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[0].to_i) if attacks.length > 0
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i) if attacks.length > 1
