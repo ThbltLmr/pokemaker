@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="shiny"
 export default class extends Controller {
-  static targets = ["movement", "back", "front", "layer1", "layer2", "buttons"]
+  static targets = ["movement", "back", "front", "layer1", "layer2"]
 
   connect() {
     console.log("check")
@@ -68,8 +68,8 @@ export default class extends Controller {
       this.movementTarget.classList.remove("smooth")
     }, 1000);
 
-    // setTimeout(() => {
-    //   this.buttonsTarget.classList.remove("d-none")
-    // }, 2000);
+    setTimeout(() => {
+      document.getElementById("powerrangers").classList.remove("d-none")
+    }, 2000);
   }
 }
