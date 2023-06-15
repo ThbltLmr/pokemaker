@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="shiny"
 export default class extends Controller {
-  static targets = ["movement", "back", "front", "layer1", "layer2"]
+  static targets = ["movement", "back", "front", "layer1", "layer2", "buttons"]
 
   connect() {
     console.log("check")
@@ -69,7 +69,7 @@ export default class extends Controller {
     }, 1000);
 
     setTimeout(() => {
-      document.getElementById("cavaapparaitre").classList.remove("d-none")
+      this.buttonsTarget.classList.remove("d-none")
     }, 2000);
   }
 }
