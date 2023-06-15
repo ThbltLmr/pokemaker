@@ -56,7 +56,8 @@ class Pokemon < ApplicationRecord
       "#{name.capitalize}?",
       "#{name.capitalize}!",
       "#{name.capitalize} #{name}",
-      "#{name.capitalize}..."
+      "#{name.capitalize}...",
+      "#{name.capitalize.first(3)}...#{name}"
     ]
   end
 end
