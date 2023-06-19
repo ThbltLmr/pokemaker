@@ -3,6 +3,9 @@ class PokemonsController < ApplicationController
 
   def new
     @pokemon = Pokemon.new
+    if current_user.pokemons.count >= 6
+      redirect_to root_path, alert: "You have already created the maximum number of pokemons allowed"
+    end
   end
 
   def index
@@ -28,31 +31,27 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    if current_user.pokemons.count >= 6
-      redirect_to root_path, alert: "You have already created the maximum number of pokemons allowed"
-    else
-      @pokemon = Pokemon.new(pokemon_params)
-      @pokemon.user = current_user
+    @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.user = current_user
 
-      if @pokemon.valid?
-        if @pokemon.last_step?
-          MidJourneyResult.new(@pokemon).call
-          if @pokemon.photo.attached?
-            @pokemon.save
-            @attacks = params.dig(:pokemon, :attacks).split
-            create_types(@pokemon, params.dig(:pokemon, :type_ids))
-            create_attacks(@pokemon, @attacks)
-            render json: { html: reveal(@pokemon) }
-          else
-            render json: { html: loading }
-          end
+    if @pokemon.valid?
+      if @pokemon.last_step?
+        MidJourneyResult.new(@pokemon).call
+        if @pokemon.photo.attached?
+          @pokemon.save
+          @attacks = params.dig(:pokemon, :attacks).split
+          create_types(@pokemon, params.dig(:pokemon, :type_ids))
+          create_attacks(@pokemon, @attacks)
+          render json: { html: reveal(@pokemon) }
         else
-          @pokemon.next_step!
-          render json: { html: partial }
+          render json: { html: loading }
         end
       else
-        render json: { html: partial }, status: :unprocessable_entity
+        @pokemon.next_step!
+        render json: { html: partial }
       end
+    else
+      render json: { html: partial }, status: :unprocessable_entity
     end
   end
 
