@@ -7,6 +7,11 @@ export default class extends Controller {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('containerSign');
+    // const background = document.querySelector('.background-signup');
+
+    // signUpButton.addEventListener('click', () => {
+    //   background.classList.toggle('background-translate');
+    // });
 
     signUpButton.addEventListener('click', () => {
       container.classList.add("right-panel-active");
