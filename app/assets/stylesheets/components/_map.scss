@@ -9,7 +9,6 @@
   z-index: -999;
   height: 100vh;
   width: 100vw;
-  background-position: top right;
 }
 
 .player {
@@ -34,16 +33,16 @@
   transform: translate(-50%, -50%)
 }
 
-#pokedex {
-  z-index: 1000;
-  // border: 3px solid purple;
-  height: 20%;
-  width: 5%;
-  position: absolute;
-  bottom: 65%;
-  left: 90%;
-  transform: translate(-50%, -50%)
-}
+// #pokedex {
+//   z-index: 1000;
+//   // border: 3px solid purple;
+//   height: 20%;
+//   width: 5%;
+//   position: absolute;
+//   bottom: 65%;
+//   left: 90%;
+//   transform: translate(-50%, -50%)
+// }
 
 #pokelab {
   z-index: 1000;
@@ -56,16 +55,16 @@
   transform: translate(-50%, -50%)
 }
 
-#map-pokeworld {
-  z-index: 1000;
-  // border: 3px solid rgb(32, 154, 44);
-  height: 10%;
-  width: 10%;
-  position: absolute;
-  top: 85%;
-  left: 90%;
-  transform: translate(-50%, -50%)
-}
+// #map-pokeworld {
+//   z-index: 1000;
+//   // border: 3px solid rgb(32, 154, 44);
+//   height: 10%;
+//   width: 10%;
+//   position: absolute;
+//   top: 85%;
+//   left: 90%;
+//   transform: translate(-50%, -50%)
+// }
 
 .chen-avatar {
   position: absolute;
