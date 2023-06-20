@@ -3,6 +3,9 @@ class PokemonsController < ApplicationController
 
   def new
     @pokemon = Pokemon.new
+    if current_user.pokemons.count >= 6
+      redirect_to root_path, alert: "You have already created the maximum number of pokemons allowed"
+    end
   end
 
   def index
@@ -31,7 +34,6 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.user = current_user
 
-    # debugger
     if @pokemon.valid?
       if @pokemon.last_step?
         MidJourneyResult.new(@pokemon).call
@@ -88,7 +90,7 @@ class PokemonsController < ApplicationController
   def create_types(pokemon, types)
     types[1..].each { |t| PokemonType.create(pokemon: pokemon, type_id: t.to_i) }
   end
-  
+
   def create_attacks(pokemon, attacks)
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[0].to_i) if attacks.length > 0
     PokemonAttack.create(pokemon: pokemon, attack_id: attacks[1].to_i) if attacks.length > 1
