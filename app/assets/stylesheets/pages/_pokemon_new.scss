@@ -37,6 +37,12 @@
 //   background-image: linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)) , url('pokemaker_waiting.png');
 // }
 
+
+.pokemon-submit {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
 .container-shen {
   background-image: url('chen.png');
   height: 96vh;
@@ -116,6 +122,7 @@
 }
 
 .submit-button {
+  text-align: left;
   padding: 5px;
   background: none;
   border: none;
