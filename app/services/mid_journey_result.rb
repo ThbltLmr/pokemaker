@@ -3,6 +3,7 @@ require 'json'
 require 'faraday'
 
 class MidJourneyResult
+  # call the midjourney API to recover the result of a job (result endpoint of the API)
   def initialize(pokemon)
     @pokemon = pokemon
   end

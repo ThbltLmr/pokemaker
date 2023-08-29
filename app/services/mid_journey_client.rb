@@ -3,10 +3,13 @@ require 'json'
 require 'faraday'
 
 class MidJourneyClient
+  # call the midjourney API to generate an image based on a prompt (imagine endpoint of the API)
   def initialize(pokemon)
     @pokemon = pokemon
   end
 
+  # when bool = true, this calls the actual API
+  # when bool = false, this returns the id of a job already completed
   def call(bool)
     if bool
       headers = {
@@ -38,6 +41,7 @@ class MidJourneyClient
     end
   end
 
+  # retries the API call if the API returns an error
   def api_error?(task_string)
     headers = {
       "Content-Type": "application/json",
