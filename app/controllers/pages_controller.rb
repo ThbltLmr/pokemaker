@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def map
   end
 
+  # select the user's pokemons
   def profile
     @pokemons = Pokemon.where(user: current_user)
   end
