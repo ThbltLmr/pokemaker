@@ -9,8 +9,10 @@ class Pokemon < ApplicationRecord
   has_many :types, through: :pokemon_types
   has_one_attached :photo
 
+  # steps of pokemon creation form
   STEPS = [:name, :types, :prompt, :attacks, :bio]
 
+  # validations at each step of pokemon creation
   with_options if: -> { step == "name" } do
     validates :name, presence: true, length: { minimum: 2, maximum: 10 }
   end
@@ -29,6 +31,8 @@ class Pokemon < ApplicationRecord
     (step || STEPS[0]).to_s
   end
 
+  # goes to the next step of the pokemon creation form
+  # if the prompt has been entered, call the midjourney API
   def next_step!
     MidJourneyClient.new(self).call(true) if step == "prompt"
     self.step = STEPS[STEPS.index(step.to_sym) + 1]
@@ -38,6 +42,7 @@ class Pokemon < ApplicationRecord
     step == STEPS[-1].to_s
   end
 
+  # dialog for the pokemon creation form
   def instructions_for(key)
     step_instructions = {
       name: ["Hello, I am Pr. Chen! Welcome to my lab!<br>My assistant tells me you would like to create a new Pokemon<br>What would you like to name your Pokemon?"],
@@ -49,15 +54,14 @@ class Pokemon < ApplicationRecord
     step_instructions[key.to_sym]
   end
 
+  # options for chat with the pokemon
   def sentences
     [
       "#{name.capitalize}!!!",
-      "#{name.capitalize}#{name.last*3}",
-      # "#{name.capitalize}?",
+      "#{name.capitalize}#{name.last * 3}",
+      "#{name.capitalize}?",
       "#{name.capitalize}!",
       "#{name.capitalize} #{name}",
-      "#{name.capitalize}...",
-      "#{name.capitalize}...",
       "#{name.capitalize}...",
       "#{name.capitalize.first(3)}...#{name}"
     ]
