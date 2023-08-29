@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="background"
+// determines the background color of the card based on the Pokemon's type
 export default class extends Controller {
   static targets = ["card"]
   static values = {

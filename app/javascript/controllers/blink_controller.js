@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="blink"
+// blinking cursor for the 'next step' button of the pokemon creation form
 export default class extends Controller {
 
   blinkFunction = setInterval(function() {

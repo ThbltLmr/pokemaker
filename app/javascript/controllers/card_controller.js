@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="card"
+// switch between card view and list view on the profile page
 export default class extends Controller {
   static targets = ['location', 'backbutton']
 

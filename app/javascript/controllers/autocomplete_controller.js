@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="autocomplete"
+// autocompletes the search bar for Pokemon attacks
 export default class extends Controller {
   static targets = ['search', 'list', 'attacks']
   static values = {
@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("autocomplete")
   }
 
   async autocomplete() {
