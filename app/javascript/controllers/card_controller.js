@@ -26,7 +26,6 @@ export default class extends Controller {
 
     if (this.element.classList.contains("home-profile")) {
       this.locationTarget.classList.add("flex-column")
-      console.log("debug")
       this.backbuttonTarget.classList.remove("d-none")
     }
   }
