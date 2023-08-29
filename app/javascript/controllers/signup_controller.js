@@ -1,17 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="controller-signup"
+// Handles the signup/signin form with animation when switching from left panel to right panel
 export default class extends Controller {
   connect() {
     console.log("in signup controller")
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('containerSign');
-    // const background = document.querySelector('.background-signup');
-
-    // signUpButton.addEventListener('click', () => {
-    //   background.classList.toggle('background-translate');
-    // });
 
     signUpButton.addEventListener('click', () => {
       container.classList.add("right-panel-active");

@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import Typed from "typed.js";
 
-// Connects to data-controller="typed"
+// adds typed.js to the pokemon creation form
 export default class extends Controller {
   static values = {
     dialog: Array

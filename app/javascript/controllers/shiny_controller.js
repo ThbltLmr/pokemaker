@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="shiny"
+// Manages the shiny animation of the pokemon card when revealed after pokemon creation
 export default class extends Controller {
   static targets = ["movement", "back", "front", "layer1", "layer2"]
 
