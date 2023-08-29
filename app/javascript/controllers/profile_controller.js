@@ -1,11 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="profile"
+// opens the chat on the profile page
 export default class extends Controller {
   static targets = ["chat", "profile", "flip", "index", "backbutton"]
 
   connect() {
-    // this.chatTarget.style.setProperty("--r-x", -180 + "deg");
   }
 
   async render(event) {

@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="message"
+// animations for the chat with the pokemon on the profile page
 export default class extends Controller {
   static targets = ["messages","input"]
   static values = {sentences: Array}

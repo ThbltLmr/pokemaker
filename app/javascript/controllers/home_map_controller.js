@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="home-map"
+// handles movement of character in main menu
 export default class extends Controller {
   static values = { intersected: Boolean }
   static targets = ['item', 'player']
@@ -18,13 +18,6 @@ export default class extends Controller {
 
     const backgroundWidth = window.innerWidth;
     const backgroundHeight = window.innerHeight;
-
-    // const collisionLocations = [
-    //   { x: 30, y: 55, redirectUrl: '/pokemons/new' },
-    //   { x: 90, y: 90, redirectUrl: 'http://www.facebook.com' },
-    //   // { x: 90, y: 10 },
-    //   // { x: 80, y: 50 },
-    // ];
 
     var that = this
 

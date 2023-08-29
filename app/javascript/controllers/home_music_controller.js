@@ -1,11 +1,10 @@
 import { Controller } from "@hotwired/stimulus";
 
+// handles music in main menu
 export default class extends Controller {
   static values = { defaultMusic: String }
 
   connect() {
-    // console.log('hello music')
-    // this.playMusic();
     this.audio = new Audio(this.defaultMusicValue)
     this.audio.addEventListener("canplaythrough", () => {
       this.audio.play().catch(e => {
