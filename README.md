@@ -3,3 +3,5 @@ Ruby on Rails app, created by [kabolindustrie](https://github.com/kabolindustrie
 The app leverages text-to-image AI to allow users to create custom-made Pokemons.
 
 Tech stack: Ruby on Rails, Stimulus JS, CSS, Bootstrap, HTML, PostGreSQL, Scalingo.
+
+Available at www.pokemaker.xyz
